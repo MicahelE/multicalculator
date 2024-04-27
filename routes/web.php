@@ -21,3 +21,7 @@ Route::get('/', function () {
 Route::get('demo', function () {
     return view('demo');
 });
+
+Route::get('payraise', function () {
+    return view('payraise');
+});

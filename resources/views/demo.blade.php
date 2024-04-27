@@ -19,7 +19,7 @@
         <div class="container">
             <div class="list-programs-title">
            
-                <h1 id="title" class= "text-center ">Average Calculator <i id="favToolImg" class="hideden" style="cursor: pointer; font-size:large;" aria-hidden="true" title="make it favourite"></i></h1>
+                <h1 id="averagepage" class= "text-center ">Average Calculator <i id="favToolImg" class="hideden" style="cursor: pointer; font-size:large;" aria-hidden="true" title="make it favourite"></i></h1>
 </div>
             {{-- <h1 class= "text-center ">Average Calculator</h1> --}}
             <div class="row ">
@@ -28,15 +28,15 @@
 
     <form class="mt-5">
         
-          <input type="number" class="form-control" id="exampleInputnumber1" aria-describedby="numberHelp" placeholder="Enter number" value="5">
+          <input type="number" class="form-control" id="exampleInputnumber1" aria-describedby="numberHelp" placeholder="Enter number" >
           <input type="number" class="form-control" id="exampleInputnumber2" aria-describedby="numberHelp" placeholder="Enter number">
           <input type="number" class="form-control" id="exampleInputnumber3" aria-describedby="numberHelp" placeholder="Enter number">
-        <textarea name="" id="" cols="42" rows="3"></textarea>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+          <input type="number" class="form-control" id="exampleInputnumber4" aria-describedby="numberHelp" placeholder="Enter number">
+          <input type="number" class="form-control" id="exampleInputnumber5" aria-describedby="numberHelp" placeholder="Enter number">
+        <h5 class="">Results:</h5>
+        <br>
+          <textarea name="" id="" cols="42" rows="3" disabled></textarea>
+        
       </form>
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
