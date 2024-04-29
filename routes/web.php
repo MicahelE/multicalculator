@@ -25,3 +25,7 @@ Route::get('demo', function () {
 Route::get('payraise', function () {
     return view('payraise');
 });
+
+Route::get('discount', function () {
+    return view('discount');
+});
