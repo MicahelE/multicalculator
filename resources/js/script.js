@@ -52,28 +52,38 @@ if(document.querySelector("#payraise")){
     let input4 = document.getElementById("payInputnumber4");
     let input5 = document.getElementById("payInputnumber5");
 
+    
+    let raise1 = document.getElementById("raisenumber");
+    let raise2 = document.getElementById("raisenumber2");
+    let raise3 = document.getElementById("raisenumber3");
+    let raise4 = document.getElementById("raisenumber4");
+    let raise5 = document.getElementById("raisenumber5");
+
+    let afterraise1 = document.getElementById("afterraisenumber");
+    let afterraise2 = document.getElementById("afterraisenumber2");
+    let afterraise3 = document.getElementById("afterraisenumber3");
+    let afterraise4 = document.getElementById("afterraisenumber4");
+    // input variables
     let elements = document.querySelectorAll('[id^="payInput"]');
 
-let clickEvent = () => {
-    console.log('some event content here...')
-}
+    let secondelements = document.querySelectorAll('[id^="raisenumber"]');
+
+
 elements.forEach((item) => {
     item.addEventListener('input', raiseValue)
 });
 
-function calculate(e) {
-    if (e.target.value != '') {
-        
-     if (e.target.id=="payInputnumber2")
-     {
+secondelements.forEach((item) => {
+    item.addEventListener('input', percentValue)
+});
 
-     }  
-}
-}
+let convalue
+let raisevalue
+let hpw
 
 function raiseValue(e) {
 
-    let convalue
+    
     let hpw= Number(input1.value)
     // let dpw= Number(input6.value)
     
@@ -118,7 +128,72 @@ function raiseValue(e) {
 
     }
 
+    function percentValue(e) {
 
+    
+        hpw= Number(raise1.value)
+        // let dpw= Number(raise6.value)
+        
+           if (e.target.value  !=0 || "" ) {
+            
+            switch (e.target.id) {
+                case 'raisenumber':
+                    raisevalue= Number(e.target.value)* convalue *0.01
+                    raise2.value=raisevalue
+                    raise3.value=raisevalue * hpw
+                    raise4.value=raisevalue * hpw * 52/12
+                    raise5.value=raisevalue * hpw * 52
+                   // changes other input values when changed
+                    break;
+                case 'raisenumber3':
+                    raisevalue= Number(e.target.value)/hpw
+                    raise1.value=raisevalue / (0.01*convalue)
+                    raise2.value=raisevalue
+                    raise4.value=raisevalue * hpw * 52/12
+                    raise5.value=raisevalue * hpw * 52
+                   // changes other input values when changed
+                    break;
+                case 'raisenumber4':
+                    raisevalue= Number(e.target.value)/ (hpw * 52/12)
+                    raise1.value=raisevalue / (0.01*convalue)
+                    raise2.value=raisevalue
+                    raise3.value=raisevalue * hpw
+                    raise5.value=raisevalue * hpw * 52
+                   // changes other input values when changed
+                    break;
+                case 'raisenumber5':
+                    raisevalue= Number(e.target.value)/(52*hpw)
+                    raise1.value=raisevalue / (0.01*convalue)
+                    raise2.value=raisevalue
+                    raise3.value=raisevalue * hpw
+                    raise4.value=raisevalue * hpw * 52/12
+                    
+                   // changes other input values when changed
+                     break;
+            
+                default:
+                    raisevalue= Number(e.target.value)
+                    raise1.value=raisevalue / (0.01*convalue)
+                    raise3.value=raisevalue * hpw
+                    raise4.value=raisevalue * hpw * 52/12
+                    raise5.value=raisevalue * hpw * 52
+                   // changes other input values when changed
+                    break;
+                }
+                console.log(raisevalue)  
+                afterRaise()
+            }
+            
+    
+        }
+    
+        function afterRaise() {
+            
+            afterraise1.value=Number(input2.value)+Number(raise2.value)
+            afterraise2.value=Number(input3.value)+Number(raise3.value)
+            afterraise3.value=Number(input4.value)+Number(raise4.value)
+            afterraise4.value=Number(input5.value)+Number(raise5.value)
+        }
 }
 
 

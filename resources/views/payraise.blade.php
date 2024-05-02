@@ -44,11 +44,11 @@
 
     <form class="mt-5">
         
-          <input type="number" class="form-control" id="payInputnumber6" aria-describedby="numberHelp" placeholder="Enter number" >
-          <input type="number" class="form-control" id="payInputnumber7" aria-describedby="numberHelp" placeholder="Enter number">
-          <input type="number" class="form-control" id="payInputnumber8" aria-describedby="numberHelp" placeholder="Enter number">
-          <input type="number" class="form-control" id="payInputnumber9" aria-describedby="numberHelp" placeholder="Enter number">
-          <input type="number" class="form-control" id="payInputnumber10" aria-describedby="numberHelp" placeholder="Enter number">
+          <input type="number" class="form-control" id="raisenumber" aria-describedby="numberHelp" placeholder="Enter number" >
+          <input type="number" class="form-control" id="raisenumber2" aria-describedby="numberHelp" placeholder="Enter number">
+          <input type="number" class="form-control" id="raisenumber3" aria-describedby="numberHelp" placeholder="Enter number">
+          <input type="number" class="form-control" id="raisenumber4" aria-describedby="numberHelp" placeholder="Enter number">
+          <input type="number" class="form-control" id="raisenumber5" aria-describedby="numberHelp" placeholder="Enter number">
         <h5 class="">Results:</h5>
         <br>
           <textarea name="" id="" cols="42" rows="3" disabled></textarea>
@@ -60,10 +60,10 @@
 
     <form class="mt-5">
         
-          <input type="number" class="form-control" id="payInputnumber11" aria-describedby="numberHelp" placeholder="Enter number" >
-          <input type="number" class="form-control" id="payInputnumber12" aria-describedby="numberHelp" placeholder="Enter number">
-          <input type="number" class="form-control" id="payInputnumber13" aria-describedby="numberHelp" placeholder="Enter number">
-          <input type="number" class="form-control" id="payInputnumber14" aria-describedby="numberHelp" placeholder="Enter number">
+          <input type="number" class="form-control" id="afterraisenumber" aria-describedby="numberHelp" placeholder="Enter number" >
+          <input type="number" class="form-control" id="afterraisenumber2" aria-describedby="numberHelp" placeholder="Enter number">
+          <input type="number" class="form-control" id="afterraisenumber3" aria-describedby="numberHelp" placeholder="Enter number">
+          <input type="number" class="form-control" id="afterraisenumber4" aria-describedby="numberHelp" placeholder="Enter number">
         <h5 class="">Results:</h5>
         <br>
           <textarea name="" id="" cols="42" rows="3" disabled></textarea>
