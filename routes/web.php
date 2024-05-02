@@ -29,3 +29,11 @@ Route::get('payraise', function () {
 Route::get('discount', function () {
     return view('discount');
 });
+
+Route::get('markup', function () {
+    return view('markup');
+});
+
+Route::get('monthly-income', function () {
+    return view('monthly-income');
+});

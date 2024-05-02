@@ -46,10 +46,11 @@ answer.value=mean
 
 if(document.querySelector("#payraise")){
 
-    let input1 = document.getElementById("payInputnumber1");
+    let input1 = document.getElementById("payInputnumber");
     let input2 = document.getElementById("payInputnumber2");
     let input3 = document.getElementById("payInputnumber3");
-
+    let input4 = document.getElementById("payInputnumber4");
+    let input5 = document.getElementById("payInputnumber5");
 
     let elements = document.querySelectorAll('[id^="payInput"]');
 
@@ -57,11 +58,7 @@ let clickEvent = () => {
     console.log('some event content here...')
 }
 elements.forEach((item) => {
-    item.addEventListener('click', 
-    function (e) {
-        console.log('I have been clicked!')
-    }
-)
+    item.addEventListener('input', raiseValue)
 });
 
 function calculate(e) {
@@ -73,6 +70,83 @@ function calculate(e) {
      }  
 }
 }
+
+function raiseValue(e) {
+
+    let convalue
+    let hpw= Number(input1.value)
+    // let dpw= Number(input6.value)
+    
+       if (e.target.value  !=0 || "" ) {
+        
+        switch (e.target.id) {
+            case 'payInputnumber3':
+                convalue= Number(e.target.value)/hpw
+                input2.value=convalue
+                input4.value=convalue * hpw * 52/12
+                input5.value=convalue * hpw * 52
+                // results.value= Math.round(convalue * hpw * 52/12)
+                break;
+            case 'payInputnumber4':
+                convalue= Number(e.target.value)/ (hpw * 52/12)
+                input2.value=convalue
+                input3.value=convalue * hpw
+                
+                input5.value=convalue * hpw * 52
+                // results.value= Math.round(convalue * hpw * 52/12)
+                break;
+            case 'payInputnumber5':
+                convalue= Number(e.target.value)/(52*hpw)
+                input2.value=convalue
+                input3.value=convalue * hpw
+                input4.value=convalue * hpw * 52/12
+                
+                // results.value= Math.round(convalue * hpw * 52/12)
+                 break;
+        
+            default:
+                convalue= Number(e.target.value)
+                input3.value=convalue * hpw
+                input4.value=convalue * hpw * 52/12
+                input5.value=convalue * hpw * 52
+                // results.value= Math.round(convalue * hpw * 52/12)
+                break;
+            }
+            console.log(convalue)  
+        }
+        
+
+    }
+
+
+}
+
+
+if(document.querySelector("#markuppage")){
+
+    let input1 = document.getElementById("markupInputnumber1");
+    let input2 = document.getElementById("markupInputnumber2")
+    let input3 = document.getElementById("markupInputnumber3")
+    let input4 = document.getElementById("markupInputnumber4")
+
+    let elements = document.querySelectorAll('[id^="markupInput"]');
+
+    elements.forEach((item) => {
+        item.addEventListener('input', markupValue )
+    });
+
+    function markupValue(e) {
+        if (input1.value && input2.value != '') {
+           let cost=Number(input1.value)
+           let percent=Number(input2.value)
+
+           let markup= cost * 0.01 * percent
+           console.log(markup)
+           let revenue = cost+markup
+            input3.value=revenue
+            input4.value=markup
+        }
+    }
 }
 
 
@@ -101,4 +175,70 @@ if(document.querySelector("#discountpage")){
             input4.value=discount
         }
     }
+}
+
+
+if(document.querySelector("#monthly-incomepage")){
+
+    let input1 = document.getElementById("monthlyInputnumber1");
+    let input2 = document.getElementById("monthlyInputnumber2")
+    let input3 = document.getElementById("monthlyInputnumber3")
+    let input4 = document.getElementById("monthlyInputnumber4")
+    let input5 = document.getElementById("monthlyInputnumber5")
+    let input6 = document.getElementById("monthlyInputnumber6")
+    let results = document.getElementById("results")
+    let elements = document.querySelectorAll('[id^="monthlyInput"]');
+
+    elements.forEach((item) => {
+        item.addEventListener('input', monthlyValue )
+    });
+
+    function monthlyValue(e) {
+
+        let convalue
+        let hpw= Number(input5.value)
+        let dpw= Number(input6.value)
+        
+           if (e.target.value && input5.value && input6.value !=0 || '') {
+            
+            switch (e.target.id) {
+                case 'monthlyInputnumber2':
+                    convalue= Number(e.target.value)* dpw/hpw
+                    input1.value=convalue
+                    input3.value=convalue * hpw
+                    input4.value=convalue * hpw * 52
+                    results.value= Math.round(convalue * hpw * 52/12)
+                    break;
+                case 'monthlyInputnumber3':
+                    convalue= Number(e.target.value)/hpw
+                    input1.value=convalue
+                    input2.value=convalue * hpw/dpw
+                    
+                    input4.value=convalue * hpw * 52
+                    results.value= Math.round(convalue * hpw * 52/12)
+                    break;
+                case 'monthlyInputnumber4':
+                    convalue= Number(e.target.value)/(52*hpw)
+                    input1.value=convalue
+                    input2.value=convalue * hpw/dpw
+                    input3.value=convalue * hpw
+                    
+                    results.value= Math.round(convalue * hpw * 52/12)
+                     break;
+            
+                default:
+                    convalue= Number(e.target.value)
+                    input2.value=convalue * hpw/dpw
+                    input3.value=convalue * hpw
+                    input4.value=convalue * hpw * 52
+                    results.value= Math.round(convalue * hpw * 52/12)
+                    break;
+                }
+                  
+            }
+            console.log(convalue) 
+
+        }
+       
+   
 }
