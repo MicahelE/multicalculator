@@ -37,3 +37,7 @@ Route::get('markup', function () {
 Route::get('monthly-income', function () {
     return view('monthly-income');
 });
+
+Route::get('overtime', function () {
+    return view('overtime');
+});

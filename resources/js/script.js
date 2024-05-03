@@ -131,7 +131,7 @@ function raiseValue(e) {
     function percentValue(e) {
 
     
-        hpw= Number(raise1.value)
+        hpw= Number(input1.value)
         // let dpw= Number(raise6.value)
         
            if (e.target.value  !=0 || "" ) {
@@ -141,6 +141,7 @@ function raiseValue(e) {
                     raisevalue= Number(e.target.value)* convalue *0.01
                     raise2.value=raisevalue
                     raise3.value=raisevalue * hpw
+                    console.log(hpw)
                     raise4.value=raisevalue * hpw * 52/12
                     raise5.value=raisevalue * hpw * 52
                    // changes other input values when changed
@@ -310,6 +311,88 @@ if(document.querySelector("#monthly-incomepage")){
                     break;
                 }
                   
+            }
+            console.log(convalue) 
+
+        }
+       
+   
+}
+
+
+if(document.querySelector("#overtimepage")){
+
+    let input1 = document.getElementById("overtimeInputnumber1");
+    let input2 = document.getElementById("overtimeInputnumber2")
+    let input3 = document.getElementById("overtimeInputnumber3")
+    let input4 = document.getElementById("overtimeInputnumber4")
+    let input5 = document.getElementById("overtimeInputnumber5")
+    let input6 = document.getElementById("overtimeInputnumber6")
+    let input7 = document.getElementById("overtimeInputnumber7")
+    let input8 = document.getElementById("overtimeInputnumber8")
+    let input9 = document.getElementById("overtimeInputnumber9")
+    let input10 = document.getElementById("overtimeInputnumber10")
+    let input11 = document.getElementById("overtimeInputnumber11")
+    let results = document.getElementById("results")
+    let elements = document.querySelectorAll('[id^="overtimeInput"]');
+
+    elements.forEach((item) => {
+        item.addEventListener('input', overtimeValue )
+    });
+
+    function overtimeValue(e) {
+
+        let convalue
+        let hpw= Number(input5.value)
+        let dpw= Number(input6.value)
+        let opm
+           if (e.target.value && input5.value && input6.value !=0 || '') {
+            
+            switch (e.target.id) {
+                case 'overtimeInputnumber2':
+                    convalue= Number(e.target.value)* dpw/hpw
+                    input1.value=convalue
+                    input3.value=convalue * hpw
+                    input4.value=convalue * hpw * 52
+                    results.value= Math.round(convalue * hpw * 52/12)
+                    break;
+                case 'overtimeInputnumber3':
+                    convalue= Number(e.target.value)/hpw
+                    input1.value=convalue
+                    input2.value=convalue * hpw/dpw
+                    
+                    input4.value=convalue * hpw * 52
+                    results.value= Math.round(convalue * hpw * 52/12)
+                    break;
+                case 'overtimeInputnumber4':
+                    convalue= Number(e.target.value)/(52*hpw)
+                    input1.value=convalue
+                    input2.value=convalue * hpw/dpw
+                    input3.value=convalue * hpw
+                    
+                    results.value= Math.round(convalue * hpw * 52/12)
+                     break;
+            
+                case 'overtimeInputnumber1':
+                    convalue= Number(e.target.value)
+                    input2.value=convalue * hpw/dpw
+                    input3.value=convalue * hpw
+                    input4.value=convalue * hpw * 52
+                    results.value= Math.round(convalue * hpw * 52/12)
+                    break;                     
+                default:
+                    
+                    break;
+                }
+
+                if (input9.value !=0 || '') {
+                    
+                
+                opm= Number(input7.value)
+                input8.value=opm
+               input10.value= Number(input9.value)*opm
+               input11.value= Number(input10.value) + Number(results.value)
+            }
             }
             console.log(convalue) 
 

@@ -27,15 +27,13 @@
 <div class="col-4">
 
     <form class="mt-5">
-        
+        <h5>Pay before raise</h5>
           <input type="number" class="form-control" id="payInputnumber" aria-describedby="numberHelp" placeholder="Hours per week" value="40" >
           <input type="number" class="form-control" id="payInputnumber2" aria-describedby="numberHelp" placeholder="Enter number">
           <input type="number" class="form-control" id="payInputnumber3" aria-describedby="numberHelp" placeholder="Enter number">
           <input type="number" class="form-control" id="payInputnumber4" aria-describedby="numberHelp" placeholder="Enter number">
           <input type="number" class="form-control" id="payInputnumber5" aria-describedby="numberHelp" placeholder="Enter number">
-        <h5 class="">Results:</h5>
-        <br>
-          <textarea name="" id="" cols="42" rows="3" disabled></textarea>
+        
         
       </form>
 
@@ -43,15 +41,13 @@
 <div class="col-4">
 
     <form class="mt-5">
-        
-          <input type="number" class="form-control" id="raisenumber" aria-describedby="numberHelp" placeholder="Enter number" >
+        <h5>Raise</h5>
+          <input type="number" class="form-control" id="raisenumber" aria-describedby="numberHelp" placeholder="Percentage %" >
           <input type="number" class="form-control" id="raisenumber2" aria-describedby="numberHelp" placeholder="Enter number">
           <input type="number" class="form-control" id="raisenumber3" aria-describedby="numberHelp" placeholder="Enter number">
           <input type="number" class="form-control" id="raisenumber4" aria-describedby="numberHelp" placeholder="Enter number">
           <input type="number" class="form-control" id="raisenumber5" aria-describedby="numberHelp" placeholder="Enter number">
-        <h5 class="">Results:</h5>
-        <br>
-          <textarea name="" id="" cols="42" rows="3" disabled></textarea>
+        
         
       </form>
 
@@ -59,14 +55,12 @@
 <div class="col-4">
 
     <form class="mt-5">
-        
+        <h5>Pay after raise</h5>
           <input type="number" class="form-control" id="afterraisenumber" aria-describedby="numberHelp" placeholder="Enter number" >
           <input type="number" class="form-control" id="afterraisenumber2" aria-describedby="numberHelp" placeholder="Enter number">
           <input type="number" class="form-control" id="afterraisenumber3" aria-describedby="numberHelp" placeholder="Enter number">
           <input type="number" class="form-control" id="afterraisenumber4" aria-describedby="numberHelp" placeholder="Enter number">
-        <h5 class="">Results:</h5>
-        <br>
-          <textarea name="" id="" cols="42" rows="3" disabled></textarea>
+        
         
       </form>
 
