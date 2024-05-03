@@ -27,20 +27,32 @@
 <div class="col-4 mx-auto">
 
     <form class="mt-5">
-        
+        <h5>Regular work time</h5>
+        <label for="overtimeInputnumber1">Regular pay</label>
           <input type="number" class="form-control" id="overtimeInputnumber1" aria-describedby="numberHelp" placeholder="Enter number" >
+          <label for="overtimeInputnumber1">Regular work time</label>
           <input type="number" class="form-control" id="overtimeInputnumber2" aria-describedby="numberHelp" placeholder="Enter number">
 
-          <h5 class="">Results:</h5>
-          <br>
+          <label for="overtimeInputnumber1">Total regular pay</label>
             <textarea name="" id="results" cols="42" rows="2" disabled></textarea>
-          <input type="number" class="form-control" id="overtimeInputnumber3" aria-describedby="numberHelp" placeholder="Enter number">
-          <input type="number" class="form-control" id="overtimeInputnumber4" aria-describedby="numberHelp" placeholder="Enter number">
 
+          
+           
+          <input type="number" class="form-control" id="overtimeInputnumber3" aria-describedby="numberHelp" placeholder="Enter number">
+         
+          <input type="number" class="form-control" id="overtimeInputnumber4" aria-describedby="numberHelp" placeholder="Enter number">
+         
+          <h5>Overtime</h5>
+          <label for="overtimeInputnumber7">Overtime pay multiplier</label>
           <input type="number" class="form-control" id="overtimeInputnumber7" aria-describedby="numberHelp" placeholder="Enter number" value="1.5">
+          <label for="overtimeInputnumber8">Overtime pay</label>
           <input type="number" class="form-control" id="overtimeInputnumber8" aria-describedby="numberHelp" placeholder="Enter number">
+          <label for="overtimeInputnumber9">Overtime hours</label>
           <input type="number" class="form-control" id="overtimeInputnumber9" aria-describedby="numberHelp" placeholder="Enter number">
+          <label for="overtimeInputnumber9">Total overtime pay</label>
           <input type="number" class="form-control" id="overtimeInputnumber10" aria-describedby="numberHelp" placeholder="Enter number">
+          <h5>In total</h5>
+          <label for="overtimeInputnumber11">Total overtime pay</label>
           <input type="number" class="form-control" id="overtimeInputnumber11" aria-describedby="numberHelp" placeholder="Enter number">
           <input type="number" class="form-control" id="overtimeInputnumber5" aria-describedby="numberHelp" placeholder="Enter number" value="40">
           <input type="number" class="form-control" id="overtimeInputnumber6" aria-describedby="numberHelp" placeholder="Enter number" value="5">
