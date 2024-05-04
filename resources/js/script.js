@@ -51,6 +51,7 @@ if(document.querySelector("#payraise")){
     let input3 = document.getElementById("payInputnumber3");
     let input4 = document.getElementById("payInputnumber4");
     let input5 = document.getElementById("payInputnumber5");
+    
 
     
     let raise1 = document.getElementById("raisenumber");
@@ -80,6 +81,7 @@ secondelements.forEach((item) => {
 let convalue
 let raisevalue
 let hpw
+
 
 function raiseValue(e) {
 
@@ -263,11 +265,24 @@ if(document.querySelector("#monthly-incomepage")){
     let input5 = document.getElementById("monthlyInputnumber5")
     let input6 = document.getElementById("monthlyInputnumber6")
     let results = document.getElementById("results")
+    let adjust = document.getElementById("adjust");
     let elements = document.querySelectorAll('[id^="monthlyInput"]');
 
     elements.forEach((item) => {
         item.addEventListener('input', monthlyValue )
     });
+
+
+    adjust.addEventListener('change', function (e) {
+        if(adjust.checked){
+            input5.setAttribute("type", "hidden");
+            input6.setAttribute("type", "hidden");
+        }
+        else{
+            input5.setAttribute("type", "number");
+            input6.setAttribute("type", "number");
+        }
+    })
 
     function monthlyValue(e) {
 

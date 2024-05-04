@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Monthly-income Calculator</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -28,13 +28,18 @@
 
     <form class="mt-5">
         
-          <input type="number" class="form-control" id="monthlyInputnumber1" aria-describedby="numberHelp" placeholder="Enter number" >
+    <label for="monthlyInputnumber1">Hourly</label>
+        <input type="number" class="form-control" id="monthlyInputnumber1" aria-describedby="numberHelp" placeholder="Enter number" >
+    <label for="monthlyInputnumber2">Daily</label>
           <input type="number" class="form-control" id="monthlyInputnumber2" aria-describedby="numberHelp" placeholder="Enter number">
+    <label for="monthlyInputnumber3">Weekly</label>
           <input type="number" class="form-control" id="monthlyInputnumber3" aria-describedby="numberHelp" placeholder="Enter number">
+    <label for="monthlyInputnumber4">Yearly</label>
           <input type="number" class="form-control" id="monthlyInputnumber4" aria-describedby="numberHelp" placeholder="Enter number">
         <h5 class="">Results:</h5>
         <br>
           <textarea name="" id="results" cols="42" rows="3" disabled></textarea>
+          <input type="checkbox" id="adjust" name="scales"  /><label for="adjust">Total overtime pay</label>
           <input type="number" class="form-control" id="monthlyInputnumber5" aria-describedby="numberHelp" placeholder="Enter number" value="40">
           <input type="number" class="form-control" id="monthlyInputnumber6" aria-describedby="numberHelp" placeholder="Enter number" value="5">
       </form>

@@ -18,8 +18,8 @@ Route::get('/', function () {
 });
 
 
-Route::get('demo', function () {
-    return view('demo');
+Route::get('average', function () {
+    return view('average');
 });
 
 Route::get('payraise', function () {

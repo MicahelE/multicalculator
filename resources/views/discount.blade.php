@@ -29,7 +29,7 @@
     <form class="mt-5">
         
          Original Price <input type="number" class="form-control" id="discountInputnumber1" aria-describedby="numberHelp" placeholder="Enter amount" >
-          Discount <input type="number" class="form-control" id="discountInputnumber2" aria-describedby="numberHelp" placeholder="in percentage">%
+          Discount <input type="number" class="form-control" id="discountInputnumber2" aria-describedby="numberHelp" placeholder="%">
         
         
       </form>

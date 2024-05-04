@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Average Calculator</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -28,11 +28,14 @@
 
     <form class="mt-5">
         
-          <input type="number" class="form-control" id="exampleInputnumber1" aria-describedby="numberHelp" placeholder="Enter number" >
-          <input type="number" class="form-control" id="exampleInputnumber2" aria-describedby="numberHelp" placeholder="Enter number">
-          <input type="number" class="form-control" id="exampleInputnumber3" aria-describedby="numberHelp" placeholder="Enter number">
-          <input type="number" class="form-control" id="exampleInputnumber4" aria-describedby="numberHelp" placeholder="Enter number">
-          <input type="number" class="form-control" id="exampleInputnumber5" aria-describedby="numberHelp" placeholder="Enter number">
+          <input type="number" class="form-control" id="exampleInputnumber1" aria-describedby="numberHelp" placeholder="#1" >
+          <input type="number" class="form-control" id="exampleInputnumber2" aria-describedby="numberHelp" placeholder="#2">
+          <input type="number" class="form-control" id="exampleInputnumber3" aria-describedby="numberHelp" placeholder="#3">
+          <input type="number" class="form-control" id="exampleInputnumber4" aria-describedby="numberHelp" placeholder="#4">
+          <input type="number" class="form-control" id="exampleInputnumber5" aria-describedby="numberHelp" placeholder="#5">
+          <input type="number" class="form-control" id="exampleInputnumber6" aria-describedby="numberHelp" placeholder="#6">
+          <input type="number" class="form-control" id="exampleInputnumber7" aria-describedby="numberHelp" placeholder="#7">
+          <input type="number" class="form-control" id="exampleInputnumber7" aria-describedby="numberHelp" placeholder="#8">
         <h5 class="">Results:</h5>
         <br>
           <textarea name="" id="" cols="42" rows="3" disabled></textarea>
