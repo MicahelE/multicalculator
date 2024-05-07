@@ -35,7 +35,7 @@
           <input type="number" class="form-control" id="exampleInputnumber5" aria-describedby="numberHelp" placeholder="#5">
           <input type="number" class="form-control" id="exampleInputnumber6" aria-describedby="numberHelp" placeholder="#6">
           <input type="number" class="form-control" id="exampleInputnumber7" aria-describedby="numberHelp" placeholder="#7">
-          <input type="number" class="form-control" id="exampleInputnumber7" aria-describedby="numberHelp" placeholder="#8">
+          <input type="number" class="form-control" id="exampleInputnumber8" aria-describedby="numberHelp" placeholder="#8">
         <h5 class="">Results:</h5>
         <br>
           <textarea name="" id="" cols="42" rows="3" disabled></textarea>

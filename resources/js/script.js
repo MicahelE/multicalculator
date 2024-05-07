@@ -12,9 +12,31 @@
     let input = document.querySelectorAll("input");
 let log = document.getElementById("values");
 
+
 document.addEventListener("input", updateValue);
 
 function updateValue(e) {
+
+    let test = Array.from(input).every(item => {
+        return item.value != ""
+      })
+      // checks if all inputs values are not null 
+
+if (test) { // adds a new input when true
+    let arrtest= Array.from(input);
+ let newInput=document.createElement("input");
+ newInput.setAttribute("class", "form-control");
+ let arrno= arrtest.length + 1;
+ let newId= "exampleInputnumber" + arrno
+ newInput.setAttribute("id", newId);
+ newInput.setAttribute("placeholder", "#"+arrno);
+ console.log(newInput);
+ console.log(arrtest);
+ let lastEl=arrtest[arrtest.length - 1];
+ lastEl.parentNode.insertBefore( newInput, lastEl.nextSibling);
+ input = document.querySelectorAll("input");
+}
+
     let outputArray=[]
     if (e.target.value != '') {
         for (let i = 0; i < input.length; i++) {
