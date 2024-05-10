@@ -28,10 +28,15 @@
 
     <form class="mt-5">
         <h5>Pay before raise</h5>
+        <label for="payInputnumber">Hours per week</label>
           <input type="number" class="form-control" id="payInputnumber" aria-describedby="numberHelp" placeholder="Hours per week" value="40" >
+          <label for="payInputnumber2">Hourly</label>
           <input type="number" class="form-control" id="payInputnumber2" aria-describedby="numberHelp" placeholder="Hourly">
+          <label for="payInputnumber3">Weekly</label>
           <input type="number" class="form-control" id="payInputnumber3" aria-describedby="numberHelp" placeholder="Weekly">
+          <label for="payInputnumber4">Monthly</label>
           <input type="number" class="form-control" id="payInputnumber4" aria-describedby="numberHelp" placeholder="Monthly">
+          <label for="payInputnumber5">Annual</label>
           <input type="number" class="form-control" id="payInputnumber5" aria-describedby="numberHelp" placeholder="Annual">
         
         
@@ -42,10 +47,15 @@
 
     <form class="mt-5">
         <h5>Raise</h5>
+        <label for="raisenumber">Percentage raise</label>
           <input type="number" class="form-control" id="raisenumber" aria-describedby="numberHelp" placeholder="Percentage %" >
+          <label for="raisenumber2">Hourly</label>
           <input type="number" class="form-control" id="raisenumber2" aria-describedby="numberHelp" placeholder="Hourly">
+          <label for="raisenumber3">Weekly</label>
           <input type="number" class="form-control" id="raisenumber3" aria-describedby="numberHelp" placeholder="Weekly">
+          <label for="raisenumber4">Monthly</label>
           <input type="number" class="form-control" id="raisenumber4" aria-describedby="numberHelp" placeholder="Monthly">
+          <label for="raisenumber5">Annual</label>
           <input type="number" class="form-control" id="raisenumber5" aria-describedby="numberHelp" placeholder="Annual">
         
         
@@ -56,9 +66,13 @@
 
     <form class="mt-5">
         <h5>Pay after raise</h5>
-          <input type="number" class="form-control" id="afterraisenumber" aria-describedby="numberHelp" placeholder="Hourly" >
+        <label for="afterraisenumber2">Hourly</label>  
+        <input type="number" class="form-control" id="afterraisenumber" aria-describedby="numberHelp" placeholder="Hourly" >
+          <label for="afterraisenumber3">Weekly</label>
           <input type="number" class="form-control" id="afterraisenumber2" aria-describedby="numberHelp" placeholder="Weekly">
+          <label for="afterraisenumber4">Monthly</label>
           <input type="number" class="form-control" id="afterraisenumber3" aria-describedby="numberHelp" placeholder="Monthly">
+          <label for="afterraisenumber5">Annual</label>
           <input type="number" class="form-control" id="afterraisenumber4" aria-describedby="numberHelp" placeholder="Annual">
         
         

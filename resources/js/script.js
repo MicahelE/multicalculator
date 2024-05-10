@@ -114,11 +114,24 @@ function raiseValue(e) {
        if (e.target.value  !=0 || "" ) {
         
         switch (e.target.id) {
+            case 'payInputnumber':
+
+                if (input2.value!='') {
+                
+                input2.value=convalue
+                input3.value=convalue * hpw
+                input4.value=convalue * hpw * 52/12
+                input5.value=convalue * hpw * 52
+                reevaluate()
+                }
+                // results.value= Math.round(convalue * hpw * 52/12)
+                break;
             case 'payInputnumber3':
                 convalue= Number(e.target.value)/hpw
                 input2.value=convalue
                 input4.value=convalue * hpw * 52/12
                 input5.value=convalue * hpw * 52
+                reevaluate()
                 // results.value= Math.round(convalue * hpw * 52/12)
                 break;
             case 'payInputnumber4':
@@ -127,6 +140,7 @@ function raiseValue(e) {
                 input3.value=convalue * hpw
                 
                 input5.value=convalue * hpw * 52
+                reevaluate()
                 // results.value= Math.round(convalue * hpw * 52/12)
                 break;
             case 'payInputnumber5':
@@ -134,7 +148,7 @@ function raiseValue(e) {
                 input2.value=convalue
                 input3.value=convalue * hpw
                 input4.value=convalue * hpw * 52/12
-                
+                reevaluate()
                 // results.value= Math.round(convalue * hpw * 52/12)
                  break;
         
@@ -143,6 +157,7 @@ function raiseValue(e) {
                 input3.value=convalue * hpw
                 input4.value=convalue * hpw * 52/12
                 input5.value=convalue * hpw * 52
+                reevaluate()
                 // results.value= Math.round(convalue * hpw * 52/12)
                 break;
             }
@@ -151,7 +166,21 @@ function raiseValue(e) {
         
 
     }
+function reevaluate() {
 
+    if (raise2.value!="") {
+        
+    
+                    raisevalue=raise2.value
+                    raise1.value=raisevalue / (0.01*convalue)
+                    // raise2.value=raisevalue
+                    raise3.value=raisevalue * hpw
+                    console.log(hpw)
+                    raise4.value=raisevalue * hpw * 52/12
+                    raise5.value=raisevalue * hpw * 52
+                    afterRaise()
+                }
+}
     function percentValue(e) {
 
     
