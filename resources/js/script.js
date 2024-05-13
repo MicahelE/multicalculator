@@ -91,6 +91,7 @@ if(document.querySelector("#payraise")){
 
     let secondelements = document.querySelectorAll('[id^="raisenumber"]');
 
+    let thirdelements = document.querySelectorAll('[id^="afterraisenumber"]');
 
 elements.forEach((item) => {
     item.addEventListener('input', raiseValue)
@@ -100,10 +101,14 @@ secondelements.forEach((item) => {
     item.addEventListener('input', percentValue)
 });
 
+thirdelements.forEach((item) => {
+    item.addEventListener('input', changeAfterRaise)
+});
+
 let convalue
 let raisevalue
 let hpw
-
+let afterraisevalue
 
 function raiseValue(e) {
 
@@ -248,6 +253,62 @@ function reevaluate() {
             afterraise3.value=Number(input4.value)+Number(raise4.value)
             afterraise4.value=Number(input5.value)+Number(raise5.value)
         }
+
+
+        function newRaise() {
+            
+           raise1.value=(Number( afterraise1.value)- Number(input2.value)/Number(input2.value)) * 100
+           raise2.value=Number( afterraise1.value)- Number(input2.value)
+           raise3.value=Number( afterraise2.value)- Number(input3.value)
+           raise4.value=Number( afterraise3.value)- Number(input4.value)
+           raise5.value=Number( afterraise4.value)- Number(input5.value)
+        }
+
+        function changeAfterRaise(e) {
+            hpw= Number(input1.value)
+        // let dpw= Number(raise6.value)
+        
+           if (e.target.value  !=0 || "" ) {
+            
+            switch (e.target.id) {
+                case 'afterraisenumber2':
+                    afterraisevalue= Number(e.target.value)/ hpw
+                    afterraise1.value=afterraisevalue 
+                    afterraise3.value=afterraisevalue * hpw * 52/12
+                    afterraise4.value=afterraisevalue * hpw * 52
+                   // changes other input values when changed
+                    break;
+                case 'afterraisenumber3':
+                    afterraisevalue= Number(e.target.value)/ (hpw * 52/12)
+                    afterraise1.value=afterraisevalue
+                    afterraise2.value=afterraisevalue * hpw 
+                    afterraise4.value=afterraisevalue * hpw * 52
+                   // changes other input values when changed
+                    break;
+                case 'afterraisenumber4':
+                    afterraisevalue= Number(e.target.value)/(52*hpw)
+                    afterraise1.value=afterraisevalue
+                    afterraise2.value=afterraisevalue * hpw 
+                    afterraise3.value=afterraisevalue * hpw * 52/12
+                    
+                   // changes other input values when changed
+                    break;
+                
+            
+                default:
+                    afterraisevalue= Number(e.target.value)
+                    afterraise2.value=afterraisevalue * hpw
+                    afterraise3.value=afterraisevalue * hpw * 52/12
+                    afterraise4.value=afterraisevalue * hpw * 52
+                   // changes other input values when changed
+                    break;
+                }
+               
+                newRaise()
+            }
+
+
+        }
 }
 
 
@@ -274,6 +335,18 @@ if(document.querySelector("#markuppage")){
            let revenue = cost+markup
             input3.value=revenue
             input4.value=markup
+
+            switch (e.target.id) {
+                case 'markupInputnumber3':
+                    revenue= Number(e.target.value)
+                    cost= revenue-markup
+                    raise3.value=raisevalue * hpw
+                    console.log(hpw)
+                    raise4.value=raisevalue * hpw * 52/12
+                    raise5.value=raisevalue * hpw * 52
+                   // changes other input values when changed
+                    break;
+                }
         }
     }
 }
@@ -315,6 +388,8 @@ if(document.querySelector("#monthly-incomepage")){
     let input4 = document.getElementById("monthlyInputnumber4")
     let input5 = document.getElementById("monthlyInputnumber5")
     let input6 = document.getElementById("monthlyInputnumber6")
+    let label5 = document.getElementById("label5")
+    let label6 = document.getElementById("label6")
     let results = document.getElementById("results")
     let adjust = document.getElementById("adjust");
     let elements = document.querySelectorAll('[id^="monthlyInput"]');
@@ -328,10 +403,14 @@ if(document.querySelector("#monthly-incomepage")){
         if(adjust.checked){
             input5.setAttribute("type", "hidden");
             input6.setAttribute("type", "hidden");
+            label5.setAttribute("hidden", "");
+            label6.setAttribute("hidden", "");
         }
         else{
             input5.setAttribute("type", "number");
             input6.setAttribute("type", "number");
+            label5.removeAttribute("hidden");
+            label6.removeAttribute("hidden");
         }
     })
 
