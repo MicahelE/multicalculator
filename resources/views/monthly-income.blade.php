@@ -15,7 +15,37 @@
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     </head>
     <body class="antialiased">
-
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">MULTICALCULATOR</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/average">Average</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/discount">Discount</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/payraise">Payraise</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/markup">Markup</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/monthly-income">Monthly-Income</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/overtime">Overtime</a>
+                  </li>
+              </ul>
+            </div>
+          </nav>
         <div class="container">
             <div class="list-programs-title">
            

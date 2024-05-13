@@ -326,28 +326,74 @@ if(document.querySelector("#markuppage")){
     });
 
     function markupValue(e) {
-        if (input1.value && input2.value != '') {
-           let cost=Number(input1.value)
-           let percent=Number(input2.value)
+        
+           let cost
+           let percent
 
-           let markup= cost * 0.01 * percent
+           let markup
            console.log(markup)
-           let revenue = cost+markup
-            input3.value=revenue
-            input4.value=markup
+           let revenue
+            // input3.value=revenue
+            // input4.value=markup
 
             switch (e.target.id) {
-                case 'markupInputnumber3':
-                    revenue= Number(e.target.value)
-                    cost= revenue-markup
-                    raise3.value=raisevalue * hpw
-                    console.log(hpw)
-                    raise4.value=raisevalue * hpw * 52/12
-                    raise5.value=raisevalue * hpw * 52
+                case 'markupInputnumber1':
+                    if (input1.value && input2.value != '') {
+                    cost=Number(input1.value)
+                    percent=Number(input2.value)
+
+                    markup= cost * 0.01 * percent
+                    console.log(markup)
+                    revenue = cost+markup
+                    input3.value=revenue
+                    input4.value=markup
                    // changes other input values when changed
-                    break;
+                    }
+                   break;
+                case 'markupInputnumber2':
+                    if (input1.value && input2.value != '') {
+                    cost=Number(input1.value)
+                    percent=Number(input2.value)
+
+                    markup= cost * 0.01 * percent
+                    console.log(markup)
+                    revenue = cost+markup
+                    input3.value=revenue
+                    input4.value=markup
+                    }
+                    // changes other input values when changed
+                    break;    
+               
+                case 'markupInputnumber3':
+                    if ( input3.value && input4.value != '') {
+                    // cost=Number(input1.value)
+                    // percent=Number(input2.value)
+                    revenue=Number(input3.value)
+                    markup= Number(input4.value)
+                    cost= revenue-markup
+                    percent= markup / (cost * 0.01)  
+                    
+                    
+                    input1.value=cost
+                    input2.value=percent
+                    // changes other input values when changed
+                    break; 
+                    }
+                case 'markupInputnumber4':
+                    if (input3.value  && input4.value != '') {
+                    // cost=Number(input1.value)
+                    // percent=Number(input2.value)
+                    revenue=Number(input3.value)
+                    markup= Number(input4.value)
+                    cost= revenue-markup
+                    percent= markup / (cost * 0.01)
+                    input1.value=cost
+                    input2.value=percent
+                    // changes other input values when changed
+                    break; 
+                    }
                 }
-        }
+        
     }
 }
 
