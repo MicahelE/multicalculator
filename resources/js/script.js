@@ -257,7 +257,7 @@ function reevaluate() {
 
         function newRaise() {
             
-           raise1.value=(Number( afterraise1.value)- Number(input2.value)/Number(input2.value)) * 100
+           raise1.value=((Number( afterraise1.value)- Number(input2.value))/Number(input2.value)) * 100
            raise2.value=Number( afterraise1.value)- Number(input2.value)
            raise3.value=Number( afterraise2.value)- Number(input3.value)
            raise4.value=Number( afterraise3.value)- Number(input4.value)

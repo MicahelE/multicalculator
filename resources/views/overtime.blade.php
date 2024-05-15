@@ -58,8 +58,13 @@
 
     <form class="mt-5">
         <h5>Regular work time</h5>
-        <label for="overtimeInputnumber1">Regular pay</label>
-          <input type="number" class="form-control" id="overtimeInputnumber1" aria-describedby="numberHelp" placeholder="Enter number" >
+       <div> <label for="overtimeInputnumber1">Regular pay</label>
+          <input type="number" class="form-control" id="overtimeInputnumber1" aria-describedby="numberHelp" placeholder="Enter number" ><select name="cars" id="cars">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select></div>
           <label for="overtimeInputnumber1">Regular work time</label>
           <input type="number" class="form-control" id="overtimeInputnumber2" aria-describedby="numberHelp" placeholder="Enter number">
 
