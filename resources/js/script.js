@@ -492,7 +492,29 @@ if(document.querySelector("#monthly-incomepage")){
                     
                     results.value= Math.round(convalue * hpw * 52/12)
                      break;
-            
+
+                case 'monthlyInputnumber5':
+                    hpw= Number(e.target.value)
+                    // input1.value=convalue
+                    console.log(hpw)
+                    console.log(convalue)
+                    console.log(input1.value)
+                    convalue= Number(input1.value)
+                    input2.value=convalue * hpw/dpw
+                    input3.value=convalue * hpw
+                    input4.value=convalue * hpw * 52
+                    results.value= Math.round(convalue * hpw * 52/12)
+                     break;
+
+                case 'monthlyInputnumber6':
+                        dpw= Number(e.target.value)
+                        // input1.value=convalue
+                        convalue= Number(input1.value)
+                        input2.value=convalue * hpw/dpw
+                        input3.value=convalue * hpw
+                        input4.value=convalue * hpw * 52
+                        results.value= Math.round(convalue * hpw * 52/12)
+                         break;
                 default:
                     convalue= Number(e.target.value)
                     input2.value=convalue * hpw/dpw

@@ -74,7 +74,7 @@
           <input type="checkbox" id="adjust" name="scales"  /><label for="adjust">Total overtime pay</label> <br>
           <label id="label5" for="monthlyInputnumber5">Hours Per Week</label>
           <input type="number" class="form-control" id="monthlyInputnumber5" aria-describedby="numberHelp" placeholder="Enter number" value="40">
-          <label id="label6" for="monthlyInputnumber5">Days Per Week</label>
+          <label id="label6" for="monthlyInputnumber6">Days Per Week</label>
           <input type="number" class="form-control" id="monthlyInputnumber6" aria-describedby="numberHelp" placeholder="Enter number" value="5">
       </form>
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
