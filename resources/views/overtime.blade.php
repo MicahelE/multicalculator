@@ -120,7 +120,7 @@
           <label for="overtimeInputnumber9">Total overtime pay</label>
           <input type="number" class="form-control" id="overtimeInputnumber10" aria-describedby="numberHelp" placeholder="Enter number">
           <h5>In total</h5>
-          <label for="overtimeInputnumber11">Total overtime pay</label>  <div class="flex-inline">   
+        <label for="overtimeInputnumber11">Total overtime pay</label>  <div class="flex-inline">   
           <input type="number" class="form-control" id="overtimeInputnumber11" aria-describedby="numberHelp" placeholder="Enter number">
           <select name="time3" id="time3">
                 
