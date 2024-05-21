@@ -1,0 +1,6 @@
+.flex-inline{
+    display: inline-flex;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    line-height: 1;
+}

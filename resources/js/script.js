@@ -546,16 +546,40 @@ if(document.querySelector("#overtimepage")){
     let input9 = document.getElementById("overtimeInputnumber9")
     let input10 = document.getElementById("overtimeInputnumber10")
     let input11 = document.getElementById("overtimeInputnumber11")
+    let convalue
+    let time = document.getElementById("time");
     let results = document.getElementById("results")
+
+    time.addEventListener('input', overtimeValue )
     let elements = document.querySelectorAll('[id^="overtimeInput"]');
 
     elements.forEach((item) => {
         item.addEventListener('input', overtimeValue )
     });
 
+function timeChange(e) {
+    
+    switch (e.target.value) {
+        case "2":
+            input1.value=input2.value
+            break;
+        case "3":
+            input1.value=input3.value
+            break;
+        case "4":
+            input1.value=input4.value
+            break;
+        default:
+            input1.value=convalue
+            break;
+    }
+
+    console.log(input2.value)
+}
+
     function overtimeValue(e) {
 
-        let convalue
+        
         let hpw= Number(input5.value)
         let dpw= Number(input6.value)
         let opm
@@ -587,12 +611,28 @@ if(document.querySelector("#overtimepage")){
                      break;
             
                 case 'overtimeInputnumber1':
-                    convalue= Number(e.target.value)
+                    if (time.value=="1") {
+                        convalue= Number(e.target.value)
+                    }
+                     else if (time.value=="2") {
+                        convalue= Number(e.target.value)* dpw/hpw
+                    }
+                    else if (time.value=="3") {
+                        convalue= Number(e.target.value)/hpw
+                    }
+                    else if (time.value=="4") {
+                        convalue= Number(e.target.value)/(52*hpw)
+                    }
                     input2.value=convalue * hpw/dpw
                     input3.value=convalue * hpw
                     input4.value=convalue * hpw * 52
                     results.value= Math.round(convalue * hpw * 52/12)
-                    break;                     
+                    
+                    break;    
+                case 'time':
+                    timeChange(e)
+                    
+                    break;
                 default:
                     
                     break;
@@ -607,7 +647,7 @@ if(document.querySelector("#overtimepage")){
                input11.value= Number(input10.value) + Number(results.value)
             }
             }
-            console.log(convalue) 
+            
 
         }
        
