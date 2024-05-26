@@ -57,7 +57,20 @@
 <div class="col-4 ">
 
     <form class="mt-5">
-        
+        <label for="discountpay">What type of discount?</label>  <select name="discountpay" id="discountpay">
+                
+            <option value="1">% off</option>
+            <option value="2">% off on 2nd product</option>
+            <option value="3">% off on 3rd product</option>
+            <option value="4">fixed amount off</option>
+            <option value="5">2 for 1</option>
+            <option value="6">3 for 2</option>
+            <option value="7">4 for 3</option>
+            <option value="8">double discount</option>
+            <option value="9">triple discount</option>
+            <option value="10">discount on multiple units</option>
+          </select>
+          <br>
          Original Price <input type="number" class="form-control" id="discountInputnumber1" aria-describedby="numberHelp" placeholder="Enter amount" >
           Discount <input type="number" class="form-control" id="discountInputnumber2" aria-describedby="numberHelp" placeholder="%">
         

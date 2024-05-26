@@ -404,6 +404,21 @@ if(document.querySelector("#discountpage")){
     let input2 = document.getElementById("discountInputnumber2")
     let input3 = document.getElementById("discountInputnumber3")
     let input4 = document.getElementById("discountInputnumber4")
+    let discountLabel = document.getElementById("discountpay")
+    // if (test) { // adds a new input when true
+    //     let arrtest= Array.from(input);
+    //  let newInput=document.createElement("input");
+    //  newInput.setAttribute("class", "form-control");
+    //  let arrno= arrtest.length + 1;
+    //  let newId= "exampleInputnumber" + arrno
+    //  newInput.setAttribute("id", newId);
+    //  newInput.setAttribute("placeholder", "#"+arrno);
+    //  console.log(newInput);
+    //  console.log(arrtest);
+    //  let lastEl=arrtest[arrtest.length - 1];
+    //  lastEl.parentNode.insertBefore( newInput, lastEl.nextSibling);
+    //  input = document.querySelectorAll("input");
+    // }
 
     let elements = document.querySelectorAll('[id^="discountInput"]');
 
@@ -547,43 +562,124 @@ if(document.querySelector("#overtimepage")){
     let input10 = document.getElementById("overtimeInputnumber10")
     let input11 = document.getElementById("overtimeInputnumber11")
     let convalue
+    let daily
+    let hpw
+    let dpw
+    let otp
+    let oth
     let time = document.getElementById("time");
+    let time2 = document.getElementById("time2");
+    let time3 = document.getElementById("time3");
     let results = document.getElementById("results")
 
     time.addEventListener('input', overtimeValue )
+    time2.addEventListener('input', overtimeValue )
+    time3.addEventListener('input', overtimeValue )
     let elements = document.querySelectorAll('[id^="overtimeInput"]');
 
     elements.forEach((item) => {
         item.addEventListener('input', overtimeValue )
     });
-
+    console.log(hpw)
+    // console.log(input6)
+    hpw=40
 function timeChange(e) {
     
     switch (e.target.value) {
         case "2":
-            input1.value=input2.value
+            input1.value=convalue* hpw/dpw
             break;
         case "3":
-            input1.value=input3.value
+            input1.value=convalue * hpw
             break;
         case "4":
-            input1.value=input4.value
+            input1.value=convalue * hpw *52/12
             break;
         default:
             input1.value=convalue
             break;
     }
 
-    console.log(input2.value)
+    
+    // console.log(input2.value)
+}
+
+function time2Change(e) {
+    
+    switch (e.target.value) {
+        case "1":
+            if (time3.value=="2") {
+                input2.value=hpw/dpw
+            }
+            else if (time3.value=="3")
+            {
+                input2.value=dpw 
+            }
+
+            else{
+            input2.value=hpw * 52/12
+        }
+            // input2.value=convalue * hpw/dpw
+            break;
+        case "2":
+            if (time3.value=="2") {
+                input2.value=1
+            }
+            else if (time3.value=="3")
+            {
+                input2.value=dpw 
+            }
+
+            else{
+            input2.value=dpw * 4.348
+        }
+            break;
+        
+    }
+console.log(input2.value)
+}
+
+function time3Change(e) {
+    
+    switch (e.target.value) {
+        case "2":
+            if (time2.value=="1") {
+                input2.value=hpw/dpw 
+            }
+            else{
+            input2.value=1
+        }
+            break;
+        case "3":
+            if (time2.value=="1") {
+                input2.value=hpw 
+            }
+            else{
+            input2.value=dpw
+        }
+        break;
+        case "4":
+            if (time2.value=="1") {
+                input2.value=hpw * 52/12
+            }
+            else{
+            input2.value=dpw * 4.348
+        }
+
+            break;
+        
+    }
+console.log(input2.value)
 }
 
     function overtimeValue(e) {
 
         
-        let hpw= Number(input5.value)
-        let dpw= Number(input6.value)
+         hpw= Number(input5.value)
+         dpw= Number(input6.value)
         let opm
            if (e.target.value && input5.value && input6.value !=0 || '') {
+
             
             switch (e.target.id) {
                 case 'overtimeInputnumber2':
@@ -627,12 +723,19 @@ function timeChange(e) {
                     input3.value=convalue * hpw
                     input4.value=convalue * hpw * 52
                     results.value= Math.round(convalue * hpw * 52/12)
-                    
+                    console.log(hpw)
                     break;    
                 case 'time':
                     timeChange(e)
-                    
                     break;
+                case 'time2':
+                    time2Change(e)
+                    break;
+                 case 'time3':
+                    
+                        time3Change(e)
+                    
+                    break;    
                 default:
                     
                     break;

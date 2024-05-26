@@ -69,21 +69,21 @@
 <br>
 <label for="overtimeInputnumber1">Regular work time</label> <div class="flex-inline"> 
 
-          <input type="number" class="form-control" id="overtimeInputnumber2" aria-describedby="numberHelp" placeholder="Enter number"><select name="time2" id="time2">
+          <input type="number" class="form-control" id="overtimeInputnumber2" aria-describedby="numberHelp" placeholder="Enter number" value="8"><select name="time2" id="time2">
             <option value="1">Hours</option>
             <option value="2">Day</option>
             
           </select>
           <select name="time3" id="time3">
             <option value="2">Day</option>
-            <option value="3">Week</option>
+            <option selected="selected" value="3">Week</option>
             <option value="4">Month</option>
           </select>
           </div>
           <label for="overtimeInputnumber1">Total regular pay</label>       <div class="flex-inline"> 
    
             <textarea name="" id="results" cols="42" rows="2" disabled></textarea>
-            <select name="time3" id="time3">
+            <select name="time4" id="time4">
                 
                 <option value="3">Week</option>
                 <option value="4">Month</option>
@@ -112,7 +112,7 @@
             <option value="2">Day</option>
             
           </select>
-          <select name="time3" id="time3">
+          <select name="time5" id="time5">
             <option value="2">Day</option>
             <option value="3">Week</option>
             <option value="4">Month</option>
@@ -122,7 +122,7 @@
           <h5>In total</h5>
         <label for="overtimeInputnumber11">Total overtime pay</label>  <div class="flex-inline">   
           <input type="number" class="form-control" id="overtimeInputnumber11" aria-describedby="numberHelp" placeholder="Enter number">
-          <select name="time3" id="time3">
+          <select name="time6" id="time6">
                 
             <option value="3">Week</option>
             <option value="4">Month</option>
