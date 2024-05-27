@@ -736,6 +736,38 @@ console.log(input2.value)
                         time3Change(e)
                     
                     break;    
+
+
+                case 'overtimeInputnumber7':
+                    if (input9.value !=0 || '') {
+                    
+
+                    //     if (typeof otp == 'undefined') {
+                    //         otp= input9.value
+                    //       }
+    
+                    //       if (typeof oth == 'undefined') {
+                    //         oth= input10.value
+                    //       }
+                   console.log(convalue)
+                    opm= Number(input7.value) * convalue
+                    input8.value=opm
+                   input10.value= Number(input9.value)*opm
+                   input11.value= Number(input10.value) + Number(results.value)
+                }
+                    break;
+                    case 'overtimeInputnumber8':
+                        if (input9.value !=0 || '') {
+                            // input8.value=opm
+                            opm= Number(input8.value)
+                            // input8.value=opm
+                           input10.value= Number(input9.value)*opm
+                           input11.value= Number(input10.value) + Number(results.value)
+                           }
+                       
+                        
+                    
+                        break;
                 default:
                     
                     break;
@@ -743,9 +775,17 @@ console.log(input2.value)
 
                 if (input9.value !=0 || '') {
                     
-                
+
+                    if (typeof otp == 'undefined') {
+                        otp= input9.value
+                      }
+
+                      if (typeof oth == 'undefined') {
+                        oth= input10.value
+                      }
+               
                 opm= Number(input7.value)
-                input8.value=opm
+                // input8.value=opm
                input10.value= Number(input9.value)*opm
                input11.value= Number(input10.value) + Number(results.value)
             }
