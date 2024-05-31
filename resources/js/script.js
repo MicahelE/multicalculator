@@ -565,22 +565,33 @@ if(document.querySelector("#overtimepage")){
     let daily
     let hpw
     let dpw
+    let opm
     let otp
     let oth
+    let trp
     let time = document.getElementById("time");
     let time2 = document.getElementById("time2");
     let time3 = document.getElementById("time3");
+    let time4 = document.getElementById("time4");
+    let time5 = document.getElementById("time5");
+    let time6 = document.getElementById("time6");
+    let time7 = document.getElementById("time7");
     let results = document.getElementById("results")
 
     time.addEventListener('input', overtimeValue )
     time2.addEventListener('input', overtimeValue )
     time3.addEventListener('input', overtimeValue )
+    time4.addEventListener('input', overtimeValue )
+    time5.addEventListener('input', overtimeValue )
+    time6.addEventListener('input', overtimeValue )
+    time7.addEventListener('input', overtimeValue )
+    time8.addEventListener('input', overtimeValue )
     let elements = document.querySelectorAll('[id^="overtimeInput"]');
 
     elements.forEach((item) => {
         item.addEventListener('input', overtimeValue )
     });
-    console.log(hpw)
+    // console.log(hpw)
     // console.log(input6)
     hpw=40
 function timeChange(e) {
@@ -636,7 +647,7 @@ function time2Change(e) {
             break;
         
     }
-console.log(input2.value)
+// console.log(input2.value)
 }
 
 function time3Change(e) {
@@ -669,7 +680,113 @@ function time3Change(e) {
             break;
         
     }
-console.log(input2.value)
+// console.log(input2.value)
+}
+
+function time4Change(e) {
+    
+    switch (e.target.value) {
+        case "3":
+            results.value=Math.round(convalue * hpw )
+            break;
+        case "4":
+            results.value=Math.round(convalue * hpw * 52/12)
+            break;
+        case "5":
+            results.value=Math.round(convalue * hpw * 52)
+            break;
+        
+    }
+
+    
+}
+
+function time5Change(e) {
+    
+    switch (e.target.value) {
+        case "2":
+            input8.value=opm* hpw/dpw
+            break;
+        case "3":
+            input8.value=opm * hpw
+            break;
+        case "4":
+            input8.value=opm * hpw *52/12
+            break;
+        default:
+            input8.value=opm
+            break;
+    }
+
+    
+}
+
+function time6Change(e) {
+    
+    switch (e.target.value) {
+        case "1":
+            if (time7.value=="2") {
+                input9.value=hpw/dpw
+            }
+            else if (time7.value=="3")
+            {
+                input9.value=dpw 
+            }
+
+            else{
+            input9.value=hpw * 52/12
+        }
+            // input9.value=convalue * hpw/dpw
+            break;
+        case "2":
+            if (time7.value=="2") {
+                input9.value=1
+            }
+            else if (time7.value=="3")
+            {
+                input9.value=dpw 
+            }
+
+            else{
+            input9.value=dpw * 4.348
+        }
+            break;
+        
+    }
+// console.log(input2.value)
+}
+
+function time7Change(e) {
+    
+    switch (e.target.value) {
+        case "2":
+            if (time6.value=="1") {
+                input9.value=hpw/dpw 
+            }
+            else{
+            input9.value=1
+        }
+            break;
+        case "3":
+            if (time6.value=="1") {
+                input9.value=hpw 
+            }
+            else{
+            input9.value=dpw
+        }
+        break;
+        case "4":
+            if (time6.value=="1") {
+                input9.value=hpw * 52/12
+            }
+            else{
+            input9.value=dpw * 4.348
+        }
+
+            break;
+        
+    }
+// console.log(input2.value)
 }
 
     function overtimeValue(e) {
@@ -677,7 +794,7 @@ console.log(input2.value)
         
          hpw= Number(input5.value)
          dpw= Number(input6.value)
-        let opm
+        
            if (e.target.value && input5.value && input6.value !=0 || '') {
 
             
@@ -685,23 +802,32 @@ console.log(input2.value)
                 case 'overtimeInputnumber2':
                     convalue= Number(e.target.value)* dpw/hpw
                     input1.value=convalue
-                    input3.value=convalue * hpw
-                    input4.value=convalue * hpw * 52
-                    results.value= Math.round(convalue * hpw * 52/12)
+                    trp=Math.round(convalue * hpw )
+
+                    if (time4.value=='3') {
+                        results.value= Math.round(convalue * hpw ) 
+                    }
+                    else if (time4.value=='4'){
+                        results.value= Math.round(convalue * hpw * 52/12)
+                    }
+                    else {
+                        results.value= Math.round(convalue * hpw * 52)
+                    }
+                    // results.value= Math.round(convalue * hpw * 52/12)
                     break;
                 case 'overtimeInputnumber3':
                     convalue= Number(e.target.value)/hpw
                     input1.value=convalue
                     input2.value=convalue * hpw/dpw
                     
-                    input4.value=convalue * hpw * 52
+                    trp=Math.round(convalue * hpw * 52/12)
                     results.value= Math.round(convalue * hpw * 52/12)
                     break;
                 case 'overtimeInputnumber4':
                     convalue= Number(e.target.value)/(52*hpw)
                     input1.value=convalue
                     input2.value=convalue * hpw/dpw
-                    input3.value=convalue * hpw
+                    trp=Math.round(convalue * hpw * 52/12)
                     
                     results.value= Math.round(convalue * hpw * 52/12)
                      break;
@@ -720,8 +846,7 @@ console.log(input2.value)
                         convalue= Number(e.target.value)/(52*hpw)
                     }
                     input2.value=convalue * hpw/dpw
-                    input3.value=convalue * hpw
-                    input4.value=convalue * hpw * 52
+                    trp=Math.round(convalue * hpw * 52/12)
                     results.value= Math.round(convalue * hpw * 52/12)
                     console.log(hpw)
                     break;    
@@ -733,10 +858,30 @@ console.log(input2.value)
                     break;
                  case 'time3':
                     
-                        time3Change(e)
+                    time3Change(e)
                     
                     break;    
+                 case 'time4':
+                    
+                    time4Change(e)
+                
+                    break;
 
+                 case 'time5':
+                    
+                    time5Change(e)
+                
+                    break; 
+                 case 'time6':
+                    
+                    time6Change(e)
+                
+                    break; 
+                 case 'time7':
+                    
+                    time7Change(e)
+                
+                    break;   
 
                 case 'overtimeInputnumber7':
                     if (input9.value !=0 || '') {
@@ -750,7 +895,9 @@ console.log(input2.value)
                     //         oth= input10.value
                     //       }
                    console.log(convalue)
+                   
                     opm= Number(input7.value) * convalue
+                    console.log(opm)
                     input8.value=opm
                    input10.value= Number(input9.value)*opm
                    input11.value= Number(input10.value) + Number(results.value)
@@ -759,7 +906,20 @@ console.log(input2.value)
                     case 'overtimeInputnumber8':
                         if (input9.value !=0 || '') {
                             // input8.value=opm
-                            opm= Number(input8.value)
+                            if (time5.value=="1") {
+                                opm= Number(e.target.value)
+                            }
+                             else if (time5.value=="2") {
+                                opm= Number(e.target.value)* dpw/hpw
+                            }
+                            else if (time5.value=="3") {
+                                opm= Number(e.target.value)/hpw
+                            }
+                            else if (time5.value=="4") {
+                                opm= Number(e.target.value)/(52*hpw)
+                            }
+                            
+                            // opm= Number(input8.value)
                             // input8.value=opm
                            input10.value= Number(input9.value)*opm
                            input11.value= Number(input10.value) + Number(results.value)
@@ -768,26 +928,51 @@ console.log(input2.value)
                         
                     
                         break;
+                     case 'overtimeInputnumber9':
+                        if (input9.value !=0 || '') {
+                            // input8.value=opm
+                            opm= Number(input8.value)
+                            // input8.value=opm
+                            
+                            oth= Number(input9.value) * opm  
+                           input10.value= Number(input9.value)*opm
+                           if (time8.value=='3') {
+                            input11.value= Math.round(oth + trp ) 
+                        }
+                        else if (time8.value=='4'){
+                            input11.value= Math.round((oth + trp)*52/12)
+                        }
+                        else {
+                            input11.value= Math.round((oth + trp)*52)
+                        }
+                        //    input11.value= Number(input10.value) + Number(results.value)
+                           }
+                       
+                        
+                    
+                        break;    
                 default:
                     
                     break;
                 }
+                
 
                 if (input9.value !=0 || '') {
                     
 
-                    if (typeof otp == 'undefined') {
-                        otp= input9.value
+                    if (typeof oth == 'undefined') {
+                        oth= Number(input9.value)*opm
                       }
 
-                      if (typeof oth == 'undefined') {
-                        oth= input10.value
+                      if (typeof trp == 'undefined') {
+                        trp=Math.round(convalue * hpw * 52/12)
                       }
                
-                opm= Number(input7.value)
+                // opm= Number(input7.value)
                 // input8.value=opm
-               input10.value= Number(input9.value)*opm
-               input11.value= Number(input10.value) + Number(results.value)
+            //    input10.value= Number(input9.value)*opm
+            //    input11.value= Number(input10.value) + Number(results.value)
+            input11.value= Math.round(oth + trp )
             }
             }
             

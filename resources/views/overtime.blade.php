@@ -86,20 +86,21 @@
             <select name="time4" id="time4">
                 
                 <option value="3">Week</option>
-                <option value="4">Month</option>
+                <option value="4" selected>Month</option>
                 <option value="5">Year</option>
               </select>
           </div>
            
-          <input type="number" class="form-control" id="overtimeInputnumber3" aria-describedby="numberHelp" placeholder="Enter number">
+          <input type="number" class="form-control" id="overtimeInputnumber3" aria-describedby="numberHelp" placeholder="Enter number" hidden>
          
-          <input type="number" class="form-control" id="overtimeInputnumber4" aria-describedby="numberHelp" placeholder="Enter number">
-         
+          <input type="number" class="form-control" id="overtimeInputnumber4" aria-describedby="numberHelp" placeholder="Enter number" hidden>
+         <br>
+         <br>
           <h5>Overtime</h5>
           <label for="overtimeInputnumber7">Overtime pay multiplier</label>
           <input type="number" class="form-control" id="overtimeInputnumber7" aria-describedby="numberHelp" placeholder="Enter number" value="1.5">
           <label for="overtimeInputnumber8">Overtime pay</label><div class="flex-inline">  
-          <input type="number" class="form-control" id="overtimeInputnumber8" aria-describedby="numberHelp" placeholder="Enter number"><select name="time" id="time">
+          <input type="number" class="form-control" id="overtimeInputnumber8" aria-describedby="numberHelp" placeholder="Enter number"><select name="time5" id="time5">
             <option value="1">Hour</option>
             <option value="2">Day</option>
             <option value="3">Week</option>
@@ -107,12 +108,12 @@
           </select> </div>
           <label for="overtimeInputnumber9">Overtime hours</label><div class="flex-inline"> 
           <input type="number" class="form-control" id="overtimeInputnumber9" aria-describedby="numberHelp" placeholder="Enter number">
-          <select name="time2" id="time2">
+          <select name="time6" id="time6">
             <option value="1">Hours</option>
             <option value="2">Day</option>
             
           </select>
-          <select name="time5" id="time5">
+          <select name="time7" id="time7">
             <option value="2">Day</option>
             <option value="3">Week</option>
             <option value="4">Month</option>
@@ -122,7 +123,7 @@
           <h5>In total</h5>
         <label for="overtimeInputnumber11">Total overtime pay</label>  <div class="flex-inline">   
           <input type="number" class="form-control" id="overtimeInputnumber11" aria-describedby="numberHelp" placeholder="Enter number">
-          <select name="time6" id="time6">
+          <select name="time8" id="time8">
                 
             <option value="3">Week</option>
             <option value="4">Month</option>
