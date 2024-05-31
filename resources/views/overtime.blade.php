@@ -118,10 +118,18 @@
             <option value="3">Week</option>
             <option value="4">Month</option>
           </select></div>
-          <label for="overtimeInputnumber9">Total overtime pay</label>
+          
+          <label for="overtimeInputnumber10">Total overtime pay</label><div class="flex-inline"> 
           <input type="number" class="form-control" id="overtimeInputnumber10" aria-describedby="numberHelp" placeholder="Enter number">
+          <select name="time9" id="time9">
+                
+            <option value="3">Week</option>
+            <option value="4">Month</option>
+            <option value="5">Year</option>
+          </select> 
+        </div>
           <h5>In total</h5>
-        <label for="overtimeInputnumber11">Total overtime pay</label>  <div class="flex-inline">   
+        <label for="overtimeInputnumber11">Total  pay</label>  <div class="flex-inline">   
           <input type="number" class="form-control" id="overtimeInputnumber11" aria-describedby="numberHelp" placeholder="Enter number">
           <select name="time8" id="time8">
                 
