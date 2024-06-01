@@ -795,13 +795,13 @@ function time8Change(e) {
     
     switch (e.target.value) {
         case "3":
-            input9.value= Math.round(oth + trp ) 
+            input11.value= Math.round(oth + trp ) 
             break;
         case "4":
-            input9.value= Math.round((oth + trp)*52/12)
+            input11.value= Math.round((oth + trp)*52/12)
             break;
         case "5":
-            input9.value= Math.round((oth + trp)*52)
+            input11.value= Math.round((oth + trp)*52)
             break;
         
     }
