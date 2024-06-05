@@ -82,7 +82,7 @@
           </div>
           <label for="overtimeInputnumber1">Total regular pay</label>       <div class="flex-inline"> 
    
-            <textarea name="" id="results" cols="42" rows="2" disabled></textarea>
+            <textarea name="" id="results" cols="42" rows="2" ></textarea>
             <select name="time4" id="time4">
                 
                 <option value="3">Week</option>

@@ -52,9 +52,10 @@
                 <h1 id="discountpage" class= "text-center ">Discount Calculator <i id="favToolImg" class="hideden" style="cursor: pointer; font-size:large;" aria-hidden="true" title="make it favourite"></i></h1>
 </div>
             {{-- <h1 class= "text-center ">discount Calculator</h1> --}}
-            <div class="row ">
- 
-<div class="col-4 ">
+            
+ <div id="count1">
+  <div class="row ">
+<div class="col ">
 
     <form class="mt-5">
         <label for="discountpay">What type of discount?</label>  <select name="discountpay" id="discountpay">
@@ -79,7 +80,7 @@
 
 </div>
 
-<div class="col-4 ">
+<div class="col ">
     <h5 class="">Results</h5>
         
     <form class="mt-5">
@@ -87,6 +88,54 @@
    You're saving <input type="number" class="form-control" id="discountInputnumber4" aria-describedby="numberHelp" placeholder="">
 </form>
 </div>
+
+</div>
+
+</div>
+{{-- count --}}
+<div id="count2">
+  <div class="row">
+  <div class="col ">
+  
+      <form class="mt-5">
+          <label for="discountpay">What type of discount?</label>  <select name="discountpay" id="discountpay">
+                  
+              <option value="1">% off</option>
+              <option value="2">% off on 2nd product</option>
+              <option value="3">% off on 3rd product</option>
+              <option value="4">fixed amount off</option>
+              <option value="5">2 for 1</option>
+              <option value="6">3 for 2</option>
+              <option value="7">4 for 3</option>
+              <option value="8">double discount</option>
+              <option value="9">triple discount</option>
+              <option value="10">discount on multiple units</option>
+            </select>
+            <br>
+           Discount <input type="number" class="form-control" id="discountInputnumber1" aria-describedby="numberHelp" placeholder="%" >
+            Product 1 <input type="number" class="form-control" id="discountInputnumber2" aria-describedby="numberHelp" placeholder="Product 1">
+            Product 2 <input type="number" class="form-control" id="discountInputnumber2" aria-describedby="numberHelp" placeholder="Product 2">
+          
+          
+        </form>
+  
+  </div>
+  
+  <div class="col ">
+      <h5 class="">Results</h5>
+          
+      <form class="mt-5">
+      You Pay <input type="number" class="form-control" id="discountInputnumber3" aria-describedby="numberHelp" placeholder="" >
+      One item costs on average <input type="number" class="form-control" id="discountInputnumber3" aria-describedby="numberHelp" placeholder="" >
+     You're saving <input type="number" class="form-control" id="discountInputnumber4" aria-describedby="numberHelp" placeholder="">
+  </form>
+  </div>
+  
+  </div> 
+</div>
+
+        </div>
+
 
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

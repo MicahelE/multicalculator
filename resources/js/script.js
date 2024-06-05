@@ -368,13 +368,14 @@ if(document.querySelector("#markuppage")){
                     if ( input3.value && input4.value != '') {
                     // cost=Number(input1.value)
                     // percent=Number(input2.value)
+                    cost=Number(input1.value)
                     revenue=Number(input3.value)
-                    markup= Number(input4.value)
-                    cost= revenue-markup
+                    markup= revenue-cost
+                    // cost= revenue-markup
                     percent= markup / (cost * 0.01)  
                     
                     
-                    input1.value=cost
+                    input4.value=markup
                     input2.value=percent
                     // changes other input values when changed
                     break; 
@@ -405,6 +406,8 @@ if(document.querySelector("#discountpage")){
     let input3 = document.getElementById("discountInputnumber3")
     let input4 = document.getElementById("discountInputnumber4")
     let discountLabel = document.getElementById("discountpay")
+    let section = document.getElementById("count2")
+    // section.style.display="none"
     // if (test) { // adds a new input when true
     //     let arrtest= Array.from(input);
     //  let newInput=document.createElement("input");
@@ -427,7 +430,13 @@ if(document.querySelector("#discountpage")){
     });
 
     function discountValue(e) {
+
+        switch (e.target.id) {
+            case 'discountInputnumber1':
         if (input1.value && input2.value != '') {
+
+
+            
            let oprice=Number(input1.value)
            let percent=Number(input2.value)
 
@@ -437,6 +446,23 @@ if(document.querySelector("#discountpage")){
             input3.value=saved
             input4.value=discount
         }
+            break;
+            case 'discountInputnumber2':
+                if (input1.value && input2.value != '') {
+        
+        
+                    
+                   let oprice=Number(input1.value)
+                   let percent=Number(input2.value)
+        
+                   let discount= oprice * 0.01 * percent
+                   console.log(discount)
+                   let saved = oprice-discount
+                    input3.value=saved
+                    input4.value=discount
+                }
+            break;
+     }
     }
 }
 
@@ -589,6 +615,7 @@ if(document.querySelector("#overtimepage")){
     time7.addEventListener('input', overtimeValue )
     time8.addEventListener('input', overtimeValue )
     time9.addEventListener('input', overtimeValue )
+    results.addEventListener('input', overtimeValue )
     let elements = document.querySelectorAll('[id^="overtimeInput"]');
 
     elements.forEach((item) => {
@@ -857,7 +884,7 @@ function time9Change(e) {
                     input1.value=convalue
                     input2.value=convalue * hpw/dpw
                     
-                    trp=Math.round(convalue * hpw )
+                    trp=(convalue * hpw ).toFixed(2);
                     results.value= Math.round(convalue * hpw * 52/12)
                     break;
                 case 'overtimeInputnumber4':
@@ -866,7 +893,15 @@ function time9Change(e) {
                     input2.value=convalue * hpw/dpw
                     trp=Math.round(convalue * hpw )
                     
-                    results.value= Math.round(convalue * hpw * 52/12)
+                    results.value= (convalue * hpw * 52/12).toFixed(2);
+                     break;
+                case 'results':
+                    convalue= (Number(e.target.value)/(52/12*hpw)).toFixed(2);
+                    input1.value=convalue
+                    // input2.value=convalue * hpw/dpw
+                    trp=Math.round(convalue * hpw )
+                    
+                    // results.value= Math.round(convalue * hpw * 52/12)
                      break;
             
                 case 'overtimeInputnumber1':
@@ -882,9 +917,9 @@ function time9Change(e) {
                     else if (time.value=="4") {
                         convalue= Number(e.target.value)/(52*hpw)
                     }
-                    input2.value=convalue * hpw/dpw
-                    trp=Math.round(convalue * hpw * 52/12)
-                    results.value= Math.round(convalue * hpw * 52/12)
+                    // input2.value=convalue * hpw/dpw
+                    trp=(convalue * hpw * 52/12).toFixed(2);
+                    results.value= (convalue * hpw * 52/12).toFixed(2);
                     console.log(hpw)
                     break;    
                 case 'time':
@@ -1041,4 +1076,61 @@ function time9Change(e) {
         }
        
    
+}
+
+
+if(document.querySelector("#commissionpage")){
+
+    let input1 = document.getElementById("commissionInputnumber1");
+    let input2 = document.getElementById("commissionInputnumber2")
+    let input3 = document.getElementById("commissionInputnumber3")
+
+    let elements = document.querySelectorAll('[id^="commissionInput"]');
+
+    elements.forEach((item) => {
+        item.addEventListener('input', commissionValue )
+    });
+
+    function commissionValue(e) {
+        
+           let cost
+           let percent
+
+           let commission
+           
+           let revenue
+            // input3.value=revenue
+            // input4.value=markup
+
+            switch (e.target.id) {
+                case 'commissionInputnumber1':
+                    if (input1.value && input2.value != '') {
+                    cost=Number(input1.value)
+                    percent=Number(input2.value)
+
+                    commission= cost * 0.01 * percent
+                   
+                    revenue = cost+commission
+                    input3.value=commission
+                    console.log(commission)
+                   // changes other input values when changed
+                    }
+                   break;
+                
+                case 'commissionInputnumber2':
+                    if (input1.value && input2.value != '') {
+                    cost=Number(input1.value)
+                    percent=Number(input2.value)
+
+                    commission= cost * 0.01 * percent
+                   
+                    revenue = cost+commission
+                    input3.value=commission
+                    console.log(commission)
+                   // changes other input values when changed
+                    }
+                   break;   
+                }
+        
+    }
 }
