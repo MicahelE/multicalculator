@@ -58,7 +58,7 @@
 
     <form class="mt-5">
         
-         Original Price <input type="number" class="form-control" id="markupInputnumber1" aria-describedby="numberHelp" placeholder="Enter amount" >
+         Cost <input type="number" class="form-control" id="markupInputnumber1" aria-describedby="numberHelp" placeholder="Enter amount" >
           Markup <input type="number" class="form-control" id="markupInputnumber2" aria-describedby="numberHelp" placeholder="in percentage %">
         
         
