@@ -41,3 +41,7 @@ Route::get('monthly-income', function () {
 Route::get('overtime', function () {
     return view('overtime');
 });
+
+Route::get('commission', function () {
+    return view('commission');
+});

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Markup Calculator</title>
+        <title>Commission Calculator</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -43,40 +43,35 @@
                   <li class="nav-item">
                     <a class="nav-link" href="/overtime">Overtime</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/commission">commission</a>
-                  </li>
               </ul>
             </div>
           </nav>
         <div class="container">
             <div class="list-programs-title">
            
-                <h1 id="markuppage" class= "text-center ">Markup Calculator <i id="favToolImg" class="hideden" style="cursor: pointer; font-size:large;" aria-hidden="true" title="make it favourite"></i></h1>
+                <h1 id="commissionpage" class= "text-center ">Commission Calculator <i id="favToolImg" class="hideden" style="cursor: pointer; font-size:large;" aria-hidden="true" title="make it favourite"></i></h1>
 </div>
-            {{-- <h1 class= "text-center ">markup Calculator</h1> --}}
+            {{-- <h1 class= "text-center ">Commission Calculator</h1> --}}
             <div class="row ">
  
-<div class="col-4 ">
+<div class="col-4 mx-auto">
 
     <form class="mt-5">
         
-         Cost <input type="number" class="form-control" id="markupInputnumber1" aria-describedby="numberHelp" placeholder="Enter amount" >
-          Markup <input type="number" class="form-control" id="markupInputnumber2" aria-describedby="numberHelp" placeholder="in percentage %">
+         Sale Price <input type="number" class="form-control" id="commissionInputnumber1" aria-describedby="numberHelp" placeholder="Enter amount" >
+          Commission <input type="number" class="form-control" id="commissionInputnumber2" aria-describedby="numberHelp" placeholder="in percentage %">
         
         
       </form>
-
-</div>
-
-<div class="col-4 ">
-    <h5 class="">Results</h5>
+<br>
+      <h5 class="">Results</h5>
         
-    <form class="mt-5">
-   Revenue <input type="number" class="form-control" id="markupInputnumber3" aria-describedby="numberHelp" placeholder="" >
-   Profit <input type="number" class="form-control" id="markupInputnumber4" aria-describedby="numberHelp" placeholder="">
+    <form class="mt-3">
+        Commission amount <input type="number" class="form-control" id="commissionInputnumber3" aria-describedby="numberHelp" placeholder="">
 </form>
+
 </div>
+
 
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
