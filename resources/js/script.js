@@ -1125,12 +1125,43 @@ function time9Change(e) {
                         else {
                             input11.value= Math.round((oth + trp)*52)
                         }
-                        //    input11.value= Number(input10.value) + Number(results.value)
+
+                        if (typeof oth == 'undefined') {
+                            oth= Number(input9.value)*opm
+                          }
+    
+                          if (typeof trp == 'undefined') {
+                            trp=Math.round(convalue * hpw )
+                          }
+                   
+                          if (typeof otp == 'undefined') {
+                            otp=Number(input9.value)
+                          }
+                    
+                if (time8.value=='3') {
+                    
+                    
+                    
+                    input11.value= Math.round(Number(oth) + Number(trp) ) 
+                    console.log(input11.value);
+                }
+                else if (time8.value=='4'){
+                    input11.value= Math.round((Number(oth) + Number(trp))*52/12)
+                }
+                else {
+                    input11.value= Math.round((Number(oth) + Number(trp))*52)
+                }
                            }
                        
                         
                     
                         break;    
+                case 'overtimeInputnumber11':
+                   oth= Number(input11.value) - Number(trp);
+                   
+                   input9.value= (oth/opm).toFixed(0);
+                   input10.value= oth.toFixed(2);
+                    break;
                 default:
                     
                     break;
@@ -1140,30 +1171,30 @@ function time9Change(e) {
                 if (input9.value !=0 || '') {
                     
 
-                    if (typeof oth == 'undefined') {
-                        oth= Number(input9.value)*opm
-                      }
+            //         if (typeof oth == 'undefined') {
+            //             oth= Number(input9.value)*opm
+            //           }
 
-                      if (typeof trp == 'undefined') {
-                        trp=Math.round(convalue * hpw )
-                      }
+            //           if (typeof trp == 'undefined') {
+            //             trp=Math.round(convalue * hpw )
+            //           }
                
-                      if (typeof otp == 'undefined') {
-                        otp=Number(input9.value)
-                      }
-                // opm= Number(input7.value)
-                // input8.value=opm
-            //    input10.value= Number(input9.value)*opm
-            //    input11.value= Number(input10.value) + Number(results.value)
-            if (time8.value=='3') {
-                input11.value= Math.round(oth + trp ) 
-            }
-            else if (time8.value=='4'){
-                input11.value= Math.round((oth + trp)*52/12)
-            }
-            else {
-                input11.value= Math.round((oth + trp)*52)
-            }
+            //           if (typeof otp == 'undefined') {
+            //             otp=Number(input9.value)
+            //           }
+            //     // opm= Number(input7.value)
+            //     // input8.value=opm
+            // //    input10.value= Number(input9.value)*opm
+            // //    input11.value= Number(input10.value) + Number(results.value)
+            // if (time8.value=='3') {
+            //     input11.value= Math.round(oth + trp ) 
+            // }
+            // else if (time8.value=='4'){
+            //     input11.value= Math.round((oth + trp)*52/12)
+            // }
+            // else {
+            //     input11.value= Math.round((oth + trp)*52)
+            // }
 
 
             }
@@ -1226,7 +1257,21 @@ if(document.querySelector("#commissionpage")){
                     console.log(commission)
                    // changes other input values when changed
                     }
-                   break;   
+                   break; 
+                   
+                case 'commissionInputnumber3':
+                    if (input1.value && input2.value != '') {
+                    cost=Number(input1.value)
+                    commission=Number(input3.value)
+
+                    // commission= cost * 0.01 * percent
+                   percent= commission * 100/cost 
+                    
+                    input2.value=percent
+                    console.log(commission)
+                   // changes other input values when changed
+                    }
+                   break; 
                 }
         
     }
