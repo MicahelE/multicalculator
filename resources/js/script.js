@@ -721,6 +721,8 @@ if(document.querySelector("#overtimepage")){
     // console.log(hpw)
     // console.log(input6)
     hpw=40
+    hpw= Number(input5.value)
+         dpw= Number(input6.value)
 function timeChange(e) {
     
     switch (e.target.value) {
@@ -953,8 +955,7 @@ function time9Change(e) {
     function overtimeValue(e) {
 
         
-         hpw= Number(input5.value)
-         dpw= Number(input6.value)
+         
         
            if (e.target.value && input5.value && input6.value !=0 || '') {
 
@@ -1269,6 +1270,95 @@ if(document.querySelector("#commissionpage")){
                     
                     input2.value=percent
                     console.log(commission)
+                   // changes other input values when changed
+                    }
+                   break; 
+                }
+        
+    }
+}
+
+if(document.querySelector("#cagrpage")){
+    
+    let input1 = document.getElementById("cagrInputnumber1");
+    let input2 = document.getElementById("cagrInputnumber2");
+    let input3 = document.getElementById("cagrInputnumber3");
+    let input4 = document.getElementById("cagrInputnumber4");
+
+    let elements = document.querySelectorAll('[id^="cagrInput"]');
+
+    elements.forEach((item) => {
+        item.addEventListener('input', fvValue )
+    });
+
+    function fvValue(e) {
+        
+           let iv
+           let rate
+
+           let fv
+           
+           let period
+            // input3.value=revenue
+            // input4.value=markup
+
+            switch (e.target.id) {
+                case 'cagrInputnumber1':
+                    if (input2.value && input3.value != '') {
+                   
+                        rate=Number(input1.value);
+                    period=Number(input2.value);
+                    iv=Number(input3.value);
+
+                    fv=iv * (1+(0.01*rate))**period
+
+                    console.log(fv)
+                    input4.value=fv.toFixed(2)
+                   // changes other input values when changed
+                    }
+                   break;
+                
+                case 'cagrInputnumber2':
+                    if (input1.value && input3.value != '') {
+                        rate=Number(input1.value);
+                        period=Number(input2.value);
+                        iv=Number(input3.value);
+    
+                        fv=iv * (1+(0.01*rate))**period
+    
+                        console.log(fv)
+                        input4.value=fv.toFixed(2)
+                   // changes other input values when changed
+                    }
+                   break; 
+                   
+                case 'cagrInputnumber3':
+                    if (input1.value && input2.value != '') {
+                        
+                    rate=Number(input1.value);
+                    period=Number(input2.value);
+                    iv=Number(input3.value);
+
+                    fv=iv * (1+(0.01*rate))**period
+
+                    console.log(fv)
+                    input4.value=fv.toFixed(2)
+                   // changes other input values when changed
+                    }
+                   break; 
+
+                 case 'cagrInputnumber4':
+                    if (input1.value && input2.value && input3.value != '') {
+                        
+                    // rate=Number(input1.value);
+                    period=Number(input2.value);
+                    iv=Number(input3.value);
+                    fv=Number(input4.value);
+
+                    rate= ((fv/iv)**(1/period) - 1) *100
+
+                    
+                    input1.value=rate.toFixed(2)
                    // changes other input values when changed
                     }
                    break; 

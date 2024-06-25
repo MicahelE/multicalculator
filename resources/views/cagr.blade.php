@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Commission Calculator</title>
+        <title>CAGR Calculator</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -52,7 +52,7 @@
         <div class="container">
             <div class="list-programs-title">
            
-                <h1 id="commissionpage" class= "text-center ">Commission Calculator <i id="favToolImg" class="hideden" style="cursor: pointer; font-size:large;" aria-hidden="true" title="make it favourite"></i></h1>
+                <h1 id="cagrpage" class= "text-center ">CAGR Calculator <i id="favToolImg" class="hideden" style="cursor: pointer; font-size:large;" aria-hidden="true" title="make it favourite"></i></h1>
 </div>
             {{-- <h1 class= "text-center ">Commission Calculator</h1> --}}
             <div class="row ">
@@ -61,16 +61,16 @@
 
     <form class="mt-5">
         
-         Sale Price <input type="number" class="form-control" id="commissionInputnumber1" aria-describedby="numberHelp" placeholder="Enter amount" >
-          Commission <input type="number" class="form-control" id="commissionInputnumber2" aria-describedby="numberHelp" placeholder="in percentage %">
+        <label for="cagrInputnumber1"> Compound Annual Growth Rate (CAGR) </label><input type="number" class="form-control" id="cagrInputnumber1" aria-describedby="numberHelp" placeholder="Enter amount" >
+        <label for="cagrInputnumber2">Number of periods </label> <input type="number" class="form-control" id="cagrInputnumber2" aria-describedby="numberHelp">
         
+        <label for="cagrInputnumber3">Initial value </label> <input type="number" class="form-control" id="cagrInputnumber3" aria-describedby="numberHelp">
         
       </form>
-<br>
-      <h5 class="">Results</h5>
+
         
     <form class="mt-3">
-        Commission amount <input type="number" class="form-control" id="commissionInputnumber3" aria-describedby="numberHelp" placeholder="">
+        <label for="cagrInputnumber4">Final value </label> <input type="number" class="form-control" id="cagrInputnumber4" aria-describedby="numberHelp" >
 </form>
 
 </div>

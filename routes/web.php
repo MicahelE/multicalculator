@@ -45,3 +45,7 @@ Route::get('overtime', function () {
 Route::get('commission', function () {
     return view('commission');
 });
+
+Route::get('cagr', function () {
+    return view('cagr');
+});

@@ -44,7 +44,7 @@
                     <a class="nav-link" href="/overtime">Overtime</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/commission">Commission</a>
+                    <a class="nav-link" href="/cagr">CAGR</a>
                   </li>
               </ul>
             </div>
