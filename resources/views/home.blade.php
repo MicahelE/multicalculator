@@ -52,6 +52,20 @@
                 </div>
               </nav>
 {{-- </div> --}}
+<section>
+  <div class="container">
+    <div class="row py-5">
+      <div class="col">
+<h1 class="">Calculators to help your day to day work</h1>
+<p>With Multicalculator, we're here to make your daily life easier. Whether you're planning your budget, managing your time, or tackling small tasks, we provide powerful yet simple tools to help you calculate anything you need. From the grocery aisle to your next big project, we’ve got you covered.</p>
+      </div>
+      <div class="col">
+        
+<img src="./images/multicalculator.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</section>
 
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
