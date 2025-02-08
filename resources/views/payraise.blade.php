@@ -117,5 +117,73 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     {{-- <script src="resources/js/script.js"></script> --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <!-- Add SEO-friendly content section -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <article class="calculator-guide">
+                    <h2>Pay Raise Calculator: Understand Your Salary Increase</h2>
+                    
+                    <h3>Understanding Pay Raises</h3>
+                    <p>A pay raise or salary increase represents the amount your compensation grows from its current rate. Understanding how pay raises affect your income is crucial for career planning and financial management.</p>
+
+                    <h3>How to Calculate a Pay Raise</h3>
+                    <div class="card bg-light p-3 mb-4">
+                        <h4>Basic Calculations:</h4>
+                        <ul class="mb-0">
+                            <li><strong>Raise Amount:</strong> Current Salary × Raise Percentage</li>
+                            <li><strong>New Salary:</strong> Current Salary + Raise Amount</li>
+                            <li><strong>Percentage Increase:</strong> (Raise Amount ÷ Current Salary) × 100</li>
+                        </ul>
+                    </div>
+
+                    <h3>Types of Pay Raises</h3>
+                    <ul>
+                        <li><strong>Merit-Based:</strong> Performance-related increases</li>
+                        <li><strong>Cost of Living:</strong> Inflation-adjusted raises</li>
+                        <li><strong>Promotion:</strong> New position/responsibility increases</li>
+                        <li><strong>Market Adjustment:</strong> Competitive alignment raises</li>
+                    </ul>
+
+                    <h3>Impact of Pay Raises</h3>
+                    <ul>
+                        <li><strong>Short-Term:</strong> Immediate income increase</li>
+                        <li><strong>Long-Term:</strong> Compound effect on future earnings</li>
+                        <li><strong>Benefits:</strong> Potential impact on bonuses and benefits</li>
+                        <li><strong>Retirement:</strong> Effect on retirement contributions</li>
+                    </ul>
+
+                    <div class="calculator-faq mt-4">
+                        <h3>Frequently Asked Questions</h3>
+                        
+                        <h4>What is a typical annual raise?</h4>
+                        <p>Average annual raises typically range from 3-5%, though this varies by:</p>
+                        <ul>
+                            <li>Industry standards</li>
+                            <li>Company performance</li>
+                            <li>Individual performance</li>
+                            <li>Economic conditions</li>
+                        </ul>
+
+                        <h4>How do raises affect tax brackets?</h4>
+                        <p>A significant raise might move you into a higher tax bracket. Consider the net impact after taxes when evaluating a raise.</p>
+                    </div>
+
+                    <div class="pro-tips mt-4">
+                        <h3>Maximizing Your Pay Raise</h3>
+                        <ul>
+                            <li>Research industry salary standards</li>
+                            <li>Document your achievements</li>
+                            <li>Time your raise request strategically</li>
+                            <li>Consider the total compensation package</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     </body>
 </html>

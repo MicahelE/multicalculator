@@ -149,5 +149,70 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     {{-- <script src="resources/js/script.js"></script> --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <!-- Add SEO-friendly content section -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <article class="calculator-guide">
+                    <h2>Overtime Calculator: Maximize Your Extra Hours</h2>
+                    
+                    <h3>Understanding Overtime Pay</h3>
+                    <p>Overtime pay is additional compensation for hours worked beyond standard working hours. Most commonly, it's calculated at 1.5 times the regular hourly rate for hours worked over 40 per week.</p>
+
+                    <h3>How to Calculate Overtime</h3>
+                    <div class="card bg-light p-3 mb-4">
+                        <h4>Standard Overtime Calculation:</h4>
+                        <ul class="mb-0">
+                            <li><strong>Regular Pay:</strong> Regular Hours × Regular Rate</li>
+                            <li><strong>Overtime Pay:</strong> Overtime Hours × (Regular Rate × 1.5)</li>
+                            <li><strong>Total Pay:</strong> Regular Pay + Overtime Pay</li>
+                        </ul>
+                    </div>
+
+                    <h3>Types of Overtime Rates</h3>
+                    <ul>
+                        <li><strong>Time and a Half:</strong> 1.5× regular pay (most common)</li>
+                        <li><strong>Double Time:</strong> 2× regular pay (holidays/special circumstances)</li>
+                        <li><strong>Premium Pay:</strong> Various rates for specific situations</li>
+                    </ul>
+
+                    <h3>When Does Overtime Apply?</h3>
+                    <ul>
+                        <li>After 40 hours in a workweek (standard)</li>
+                        <li>On holidays or weekends (varies by employer)</li>
+                        <li>Beyond 8 hours per day (in some jurisdictions)</li>
+                        <li>Special industry-specific rules</li>
+                    </ul>
+
+                    <div class="calculator-faq mt-4">
+                        <h3>Frequently Asked Questions</h3>
+                        
+                        <h4>Who is eligible for overtime pay?</h4>
+                        <p>Eligibility depends on:</p>
+                        <ul>
+                            <li>Employment classification (exempt vs. non-exempt)</li>
+                            <li>Local labor laws</li>
+                            <li>Company policies</li>
+                            <li>Industry regulations</li>
+                        </ul>
+
+                        <h4>How does overtime affect tax calculations?</h4>
+                        <p>Overtime pay is taxed at the same rate as regular income but may push you into a higher tax bracket if it significantly increases your total income.</p>
+                    </div>
+
+                    <div class="pro-tips mt-4">
+                        <h3>Overtime Best Practices</h3>
+                        <ul>
+                            <li>Keep accurate records of all hours worked</li>
+                            <li>Understand your overtime eligibility</li>
+                            <li>Know your company's overtime policies</li>
+                            <li>Track overtime patterns for better work-life balance</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
     </body>
 </html>
