@@ -122,7 +122,7 @@
               </a>
               <a href="/payraise" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                 Pay Raise Calculator
-                <span class="badge badge-success badge-pill">Career</span>
+                <span class="badge badge-success badge-pill">Careers</span>
               </a>
               <a href="/markup" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                 Markup Calculator
