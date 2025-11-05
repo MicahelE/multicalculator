@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SitemapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +50,6 @@ Route::get('commission', function () {
 Route::get('cagr', function () {
     return view('cagr');
 });
+
+// Sitemap
+Route::get('sitemap.xml', [SitemapController::class, 'index']);
