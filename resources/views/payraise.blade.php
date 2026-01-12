@@ -4,8 +4,13 @@
         @include('partials.google-analytics')
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Calculate your salary after a raise. Free pay raise calculator shows new hourly, weekly, monthly, and annual earnings.">
+        <meta property="og:title" content="Pay Raise Calculator - Salary Increase Calculator">
+        <meta property="og:description" content="Calculate your salary after a raise. Free pay raise calculator shows new hourly, weekly, monthly, and annual earnings.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://multicalculator.itechy.xyz/payraise">
 
-        <title>Pay Raise Calculator </title>
+        <title>Pay Raise Calculator - Salary Increase Calculator</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

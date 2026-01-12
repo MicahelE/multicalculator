@@ -4,8 +4,13 @@
         @include('partials.google-analytics')
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Calculate sales commission instantly. Free commission calculator to determine earnings from sales at any commission rate.">
+        <meta property="og:title" content="Commission Calculator - Sales Commission Calculator">
+        <meta property="og:description" content="Calculate sales commission instantly. Free commission calculator to determine earnings from sales at any commission rate.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://multicalculator.itechy.xyz/commission">
 
-        <title>Commission Calculator</title>
+        <title>Commission Calculator - Sales Commission Calculator</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

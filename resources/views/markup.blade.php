@@ -4,8 +4,13 @@
         @include('partials.google-analytics')
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Free retail markup calculator. Calculate markup percentage, profit margin, and selling price from cost instantly.">
+        <meta property="og:title" content="Markup Calculator - Retail Markup & Profit Calculator">
+        <meta property="og:description" content="Free retail markup calculator. Calculate markup percentage, profit margin, and selling price from cost instantly.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://multicalculator.itechy.xyz/markup">
 
-        <title>Markup Calculator</title>
+        <title>Markup Calculator - Retail Markup & Profit Calculator</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

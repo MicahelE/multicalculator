@@ -4,8 +4,13 @@
         @include('partials.google-analytics')
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Calculate overtime pay including time and a half. Free overtime calculator for hourly workers to determine extra pay.">
+        <meta property="og:title" content="Overtime Calculator - Time and a Half Pay Calculator">
+        <meta property="og:description" content="Calculate overtime pay including time and a half. Free overtime calculator for hourly workers to determine extra pay.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://multicalculator.itechy.xyz/overtime">
 
-        <title>Overtime Calculator</title>
+        <title>Overtime Calculator - Time and a Half Pay Calculator</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

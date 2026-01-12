@@ -4,8 +4,13 @@
         @include('partials.google-analytics')
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Convert hourly wage to monthly salary. Free calculator to convert hourly, daily, weekly, or yearly pay to monthly income.">
+        <meta property="og:title" content="Monthly Income Calculator - Hourly to Monthly Salary">
+        <meta property="og:description" content="Convert hourly wage to monthly salary. Free calculator to convert hourly, daily, weekly, or yearly pay to monthly income.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://multicalculator.itechy.xyz/monthly-income">
 
-        <title>Monthly-income Calculator</title>
+        <title>Monthly Income Calculator - Hourly to Monthly Salary</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

@@ -4,8 +4,13 @@
         @include('partials.google-analytics')
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Calculate the average of numbers quickly. Free mean calculator to find the arithmetic average of up to 8 values.">
+        <meta property="og:title" content="Average Calculator - Mean Calculator Online">
+        <meta property="og:description" content="Calculate the average of numbers quickly. Free mean calculator to find the arithmetic average of up to 8 values.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://multicalculator.itechy.xyz/average">
 
-        <title>Average Calculator</title>
+        <title>Average Calculator - Mean Calculator Online</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

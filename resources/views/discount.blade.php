@@ -4,8 +4,13 @@
         @include('partials.google-analytics')
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Free double & triple discount calculator. Calculate stacked discounts, BOGO deals, percentage off, and sale prices instantly.">
+        <meta property="og:title" content="Discount Calculator - Double, Triple & BOGO Calculator">
+        <meta property="og:description" content="Free double & triple discount calculator. Calculate stacked discounts, BOGO deals, percentage off, and sale prices instantly.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://multicalculator.itechy.xyz/discount">
 
-        <title>Discount Calculator</title>
+        <title>Discount Calculator - Double, Triple & BOGO Calculator</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

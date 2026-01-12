@@ -4,8 +4,13 @@
         @include('partials.google-analytics')
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Calculate compound annual growth rate for your investments. Free CAGR calculator to measure investment performance over time.">
+        <meta property="og:title" content="CAGR Calculator - Compound Annual Growth Rate">
+        <meta property="og:description" content="Calculate compound annual growth rate for your investments. Free CAGR calculator to measure investment performance over time.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://multicalculator.itechy.xyz/cagr">
 
-        <title>CAGR Calculator</title>
+        <title>CAGR Calculator - Compound Annual Growth Rate</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
