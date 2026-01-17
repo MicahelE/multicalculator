@@ -51,5 +51,12 @@ Route::get('cagr', function () {
     return view('cagr');
 });
 
-// Sitemap
-Route::get('sitemap.xml', [SitemapController::class, 'index']);
+// Sitemap (exclude cookie/session middleware for Google Search Console compatibility)
+Route::get('sitemap.xml', [SitemapController::class, 'index'])
+    ->withoutMiddleware([
+        \App\Http\Middleware\EncryptCookies::class,
+        \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+        \Illuminate\Session\Middleware\StartSession::class,
+        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+        \App\Http\Middleware\VerifyCsrfToken::class,
+    ]);
