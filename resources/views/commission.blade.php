@@ -1,91 +1,83 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        @include('partials.google-analytics')
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Calculate sales commission instantly. Free commission calculator to determine earnings from sales at any commission rate.">
-        <meta property="og:title" content="Commission Calculator - Sales Commission Calculator">
-        <meta property="og:description" content="Calculate sales commission instantly. Free commission calculator to determine earnings from sales at any commission rate.">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://multicalculator.itechy.xyz/commission">
+@extends('layouts.app')
 
-        <title>Commission Calculator - Sales Commission Calculator</title>
+@section('content')
+@include('partials.calculator-hero')
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="calculator-card border-pink">
+                <h2 id="commissionpage" class="text-center section-heading">Commission Calculator</h2>
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-    </head>
-    <body class="antialiased">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">MULTICALCULATOR</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav ">
-                <li class="nav-item active">
-                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/average">Average</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/discount">Discount</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/payraise">Payraise</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/markup">Markup</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/monthly-income">Monthly-Income</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/overtime">Overtime</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/cagr">CAGR</a>
-                  </li>
-              </ul>
+                <form>
+                    <label for="commissionInputnumber1">Sale Price</label>
+                    <input type="number" class="form-control" id="commissionInputnumber1" aria-describedby="numberHelp" placeholder="Enter amount">
+                    <label for="commissionInputnumber2">Commission</label>
+                    <input type="number" class="form-control" id="commissionInputnumber2" aria-describedby="numberHelp" placeholder="in percentage %">
+                </form>
+
+                <div class="results-section">
+                    <h5>Results</h5>
+                    <label for="commissionInputnumber3">Commission amount</label>
+                    <input type="number" class="form-control" id="commissionInputnumber3" aria-describedby="numberHelp" placeholder="">
+                </div>
             </div>
-          </nav>
-        <div class="container">
-            <div class="list-programs-title">
-           
-                <h1 id="commissionpage" class= "text-center ">Commission Calculator <i id="favToolImg" class="hideden" style="cursor: pointer; font-size:large;" aria-hidden="true" title="make it favourite"></i></h1>
-</div>
-            {{-- <h1 class= "text-center ">Commission Calculator</h1> --}}
-            <div class="row ">
- 
-<div class="col-4 mx-auto">
-
-    <form class="mt-5">
-        
-         Sale Price <input type="number" class="form-control" id="commissionInputnumber1" aria-describedby="numberHelp" placeholder="Enter amount" >
-          Commission <input type="number" class="form-control" id="commissionInputnumber2" aria-describedby="numberHelp" placeholder="in percentage %">
-        
-        
-      </form>
-<br>
-      <h5 class="">Results</h5>
-        
-    <form class="mt-3">
-        Commission amount <input type="number" class="form-control" id="commissionInputnumber3" aria-describedby="numberHelp" placeholder="">
-</form>
-
+        </div>
+    </div>
 </div>
 
+@include('partials.related-calculators')
 
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    {{-- <script src="resources/js/script.js"></script> --}}
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </body>
-</html>
+<div class="container">
+    <article class="calculator-guide">
+        <h2>Sales Commission Calculator: Calculate Your Earnings</h2>
+
+        <h3>What is Sales Commission?</h3>
+        <p>Sales commission is a form of compensation paid to salespeople based on the amount of sales they generate. It's typically calculated as a percentage of the sale price and serves as an incentive to drive revenue.</p>
+
+        <h3>How to Calculate Commission</h3>
+        <div class="card bg-light p-3 mb-4">
+            <p class="mb-0"><strong>Commission = Sale Price x Commission Rate (%)</strong></p>
+        </div>
+
+        <h3>Types of Commission Structures</h3>
+        <ul>
+            <li><strong>Flat Rate:</strong> Fixed percentage on all sales</li>
+            <li><strong>Tiered:</strong> Higher percentages for higher sales volumes</li>
+            <li><strong>Draw Against Commission:</strong> Guaranteed base with commission on top</li>
+            <li><strong>Residual:</strong> Ongoing commission from recurring sales</li>
+        </ul>
+
+        <h3>Common Commission Rates by Industry</h3>
+        <ul>
+            <li><strong>Real Estate:</strong> 5-6% of sale price</li>
+            <li><strong>Retail:</strong> 1-10% depending on product</li>
+            <li><strong>Insurance:</strong> 5-15% of premium</li>
+            <li><strong>SaaS/Software:</strong> 8-15% of contract value</li>
+        </ul>
+
+        <div class="calculator-faq mt-4">
+            <h3>Frequently Asked Questions</h3>
+
+            <h4>What is a good commission rate?</h4>
+            <p>Commission rates vary widely by industry. A "good" rate depends on the product, sales cycle length, and base salary provided.</p>
+
+            <h4>How are commissions taxed?</h4>
+            <p>Commissions are taxed as regular income. Your employer may withhold at a supplemental rate, but the final tax is calculated at your marginal rate.</p>
+
+            <h4>What is the difference between commission and bonus?</h4>
+            <p>Commission is tied directly to sales performance and is typically ongoing, while bonuses are usually one-time payments for achieving specific goals or milestones.</p>
+        </div>
+
+        <div class="pro-tips mt-4">
+            <h3>Tips for Maximizing Commission Earnings</h3>
+            <ul>
+                <li>Understand your commission structure thoroughly</li>
+                <li>Track all sales and projected earnings</li>
+                <li>Focus on high-value accounts and products</li>
+                <li>Negotiate your commission rate based on performance</li>
+            </ul>
+        </div>
+    </article>
+</div>
+@endsection

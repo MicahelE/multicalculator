@@ -14,42 +14,23 @@ use App\Http\Controllers\SitemapController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', fn() => view('home', ['seoPage' => 'home']));
 
+Route::get('average', fn() => view('average', ['seoPage' => 'average']));
 
-Route::get('average', function () {
-    return view('average');
-});
+Route::get('payraise', fn() => view('payraise', ['seoPage' => 'payraise']));
 
-Route::get('payraise', function () {
-    return view('payraise');
-});
+Route::get('discount', fn() => view('discount', ['seoPage' => 'discount']));
 
-Route::get('discount', function () {
-    return view('discount');
-});
+Route::get('markup', fn() => view('markup', ['seoPage' => 'markup']));
 
-Route::get('markup', function () {
-    return view('markup');
-});
+Route::get('monthly-income', fn() => view('monthly-income', ['seoPage' => 'monthly-income']));
 
-Route::get('monthly-income', function () {
-    return view('monthly-income');
-});
+Route::get('overtime', fn() => view('overtime', ['seoPage' => 'overtime']));
 
-Route::get('overtime', function () {
-    return view('overtime');
-});
+Route::get('commission', fn() => view('commission', ['seoPage' => 'commission']));
 
-Route::get('commission', function () {
-    return view('commission');
-});
-
-Route::get('cagr', function () {
-    return view('cagr');
-});
+Route::get('cagr', fn() => view('cagr', ['seoPage' => 'cagr']));
 
 // Sitemap (exclude cookie/session middleware for Google Search Console compatibility)
 Route::get('sitemap.xml', [SitemapController::class, 'index'])
