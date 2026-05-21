@@ -16,8 +16,19 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
+            set -e
             cd /var/www/multicalculator.itechy.xyz
+
+            # Unlock immutable critical files for deploy
+            sudo chattr -i public/index.php public/.htaccess 2>/dev/null || true
+
             git pull origin main
+
+            # Restore correct ownership/permissions after git pull
+            sudo chown -R mikeserver:www-data public/
+            sudo find public/ -type d -exec chmod 755 {} \;
+            sudo find public/ -type f -exec chmod 644 {} \;
+
             composer install --no-dev --optimize-autoloader
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
@@ -25,3 +36,6 @@ jobs:
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache
+
+            # Re-lock critical files after deploy (file-integrity protection)
+            sudo chattr +i public/index.php public/.htaccess
