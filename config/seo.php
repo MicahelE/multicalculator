@@ -82,9 +82,9 @@ return [
         ],
 
         'commission' => [
-            'title' => 'Sales Commission Calculator - Calculate Earnings | MultiCalculator',
-            'description' => 'Free sales commission calculator. Enter sale price and commission rate to instantly calculate your commission earnings. Simple, accurate, no signup required.',
-            'keywords' => 'tiered commission calculator, sales commission formula, real estate commission calculator, commission percentage calculator',
+            'title' => 'Sales Commission Calculator - Compensation & Bonus | MultiCalculator',
+            'description' => 'Free sales commission calculator. Calculate commission earnings, tiered commission structures, and sales compensation instantly. Simple, accurate, no signup required.',
+            'keywords' => 'sales compensation calculator, sales commission calculation, sales commission calculator, calculate sales commission, sales comp calculator, sales bonus calculator, tiered commission calculator, commission structure calculator, sales commission formula, real estate commission calculator, commission percentage calculator',
             'canonical' => '/commission',
             'icon' => 'fas fa-money-bill-wave',
             'hero_title' => 'Sales Commission Calculator',
