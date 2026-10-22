@@ -19,6 +19,9 @@ jobs:
             set -e
             cd /var/www/multicalculator.itechy.xyz
 
+            # Refuse to deploy onto a PHP vulnerable to PHP2Shell (CVE-2026-109618/109619, fixed 2026-10-21)
+            php -r '$min = ["8.2" => "8.2.35", "8.3" => "8.3.36", "8.4" => "8.4.27", "8.5" => "8.5.12"][PHP_MAJOR_VERSION.".".PHP_MINOR_VERSION] ?? "99"; if (version_compare(PHP_VERSION, $min, "<")) { fwrite(STDERR, "PHP ".PHP_VERSION." is vulnerable (PHP2Shell). Upgrade to $min+ first.\n"); exit(1); }'
+
             # Unlock immutable critical files for deploy
             sudo chattr -i public/index.php public/.htaccess 2>/dev/null || true
 
