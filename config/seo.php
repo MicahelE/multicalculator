@@ -1,5 +1,12 @@
 <?php
 
+// Config-driven calculators; each entry carries both its page (SEO, inputs) and nav fields.
+$tools = require __DIR__ . '/tools.php';
+foreach ($tools as $key => &$tool) {
+    $tool += ['canonical' => "/$key", 'url' => "/$key", 'hero_title' => $tool['name']];
+}
+unset($tool);
+
 return [
 
     'site_name' => 'MultiCalculator',
@@ -8,8 +15,8 @@ return [
     'pages' => [
 
         'home' => [
-            'title' => 'Free Online Calculators for Finance, Business & Math | MultiCalculator',
-            'description' => 'Free online calculator suite for financial, business, and math calculations. Calculate averages, discounts, markups, pay raises, overtime, commissions, and CAGR instantly.',
+            'title' => '50 Free Calculators for Pay, Taxes, Loans & Business | MultiCalculator',
+            'description' => '50 free online calculators for pay, taxes, loans, business and everyday math. Take-home pay, 2026 tax deductions, salary to hourly, compound interest, margin and more.',
             'keywords' => 'online calculator, financial calculator, business calculator, math calculator, free calculator',
             'canonical' => '/',
             'icon' => 'fas fa-calculator',
@@ -73,12 +80,12 @@ return [
         'overtime' => [
             'title' => 'Overtime Pay Calculator - Time and a Half | MultiCalculator',
             'description' => 'Calculate overtime pay with our free calculator. Supports time and a half, double time, and custom multipliers. See weekly, monthly, and yearly totals.',
-            'keywords' => 'time and a half calculator, double time calculator, double time pay calculator, overtime calculator gov, time and a half for holiday',
+            'keywords' => 'time and a half calculator, double time calculator, double time pay calculator, overtime calculator gov, time and a half for holiday, overtime pay after taxes',
             'canonical' => '/overtime',
             'icon' => 'fas fa-clock',
             'hero_title' => 'Overtime Pay Calculator',
             'hero_description' => 'Calculate overtime pay with time and a half, double time, and custom multipliers. See weekly, monthly, and yearly totals.',
-            'related' => ['monthly-income', 'payraise', 'commission'],
+            'related' => ['no-tax-on-overtime', 'monthly-income', 'payraise'],
         ],
 
         'commission' => [
@@ -103,17 +110,45 @@ return [
             'related' => ['average', 'markup', 'commission'],
         ],
 
-    ],
+        'no-tax-on-overtime' => [
+            'title' => 'No Tax on Overtime Calculator 2026 - Overtime Deduction | MultiCalculator',
+            'description' => 'Free no tax on overtime calculator. Estimate your qualified overtime deduction (up to $12,500, or $25,000 joint) and federal tax savings under the One Big Beautiful Bill, 2025-2028.',
+            'keywords' => 'no tax on overtime calculator, overtime tax deduction calculator, qualified overtime compensation, overtime deduction 2026, one big beautiful bill overtime, how much will no tax on overtime save me',
+            'canonical' => '/no-tax-on-overtime',
+            'icon' => 'fas fa-user-clock',
+            'hero_title' => 'No Tax on Overtime Calculator',
+            'hero_description' => 'Estimate your federal overtime deduction and tax savings for tax years 2025 through 2028.',
+            'related' => ['overtime', 'no-tax-on-tips', 'payraise'],
+        ],
 
+        'no-tax-on-tips' => [
+            'title' => 'No Tax on Tips Calculator 2026 - Tip Income Deduction | MultiCalculator',
+            'description' => 'Free no tax on tips calculator. Estimate your qualified tips deduction (up to $25,000) and federal income tax savings under the One Big Beautiful Bill, 2025-2028.',
+            'keywords' => 'no tax on tips calculator, tip deduction calculator, qualified tips deduction, no tax on tips 2026, schedule 1-a tips, how much will no tax on tips save me',
+            'canonical' => '/no-tax-on-tips',
+            'icon' => 'fas fa-coins',
+            'hero_title' => 'No Tax on Tips Calculator',
+            'hero_description' => 'Estimate your federal tips deduction and tax savings for tax years 2025 through 2028.',
+            'related' => ['no-tax-on-overtime', 'monthly-income', 'commission'],
+        ],
+
+    ] + $tools,
+
+    // Nav/footer/home section order.
+    'groups' => ['Taxes', 'Income & Pay', 'Loans & Savings', 'Business', 'Math & Everyday'],
+
+    // Drives routes, sitemap, navbar, footer and the home grid. 'new' => true shows a badge.
     'calculators' => [
-        'average' => ['name' => 'Average Calculator', 'url' => '/average', 'icon' => 'fas fa-chart-bar', 'color' => '#4F46E5'],
-        'payraise' => ['name' => 'Pay Raise Calculator', 'url' => '/payraise', 'icon' => 'fas fa-hand-holding-usd', 'color' => '#10B981'],
-        'discount' => ['name' => 'Discount Calculator', 'url' => '/discount', 'icon' => 'fas fa-tags', 'color' => '#F59E0B'],
-        'markup' => ['name' => 'Markup Calculator', 'url' => '/markup', 'icon' => 'fas fa-percentage', 'color' => '#EF4444'],
-        'monthly-income' => ['name' => 'Monthly Income Calculator', 'url' => '/monthly-income', 'icon' => 'fas fa-wallet', 'color' => '#0EA5E9'],
-        'overtime' => ['name' => 'Overtime Calculator', 'url' => '/overtime', 'icon' => 'fas fa-clock', 'color' => '#8B5CF6'],
-        'commission' => ['name' => 'Commission Calculator', 'url' => '/commission', 'icon' => 'fas fa-money-bill-wave', 'color' => '#EC4899'],
-        'cagr' => ['name' => 'CAGR Calculator', 'url' => '/cagr', 'icon' => 'fas fa-chart-line', 'color' => '#14B8A6'],
-    ],
+        'no-tax-on-overtime' => ['name' => 'No Tax on Overtime Calculator', 'url' => '/no-tax-on-overtime', 'icon' => 'fas fa-user-clock', 'color' => '#7C3AED', 'group' => 'Taxes', 'blurb' => 'Estimate your 2025-2028 federal overtime deduction and tax savings.', 'new' => true],
+        'no-tax-on-tips' => ['name' => 'No Tax on Tips Calculator', 'url' => '/no-tax-on-tips', 'icon' => 'fas fa-coins', 'color' => '#D97706', 'group' => 'Taxes', 'blurb' => 'See how much of your tip income you can deduct, up to $25,000.', 'new' => true],
+        'payraise' => ['name' => 'Pay Raise Calculator', 'url' => '/payraise', 'icon' => 'fas fa-hand-holding-usd', 'color' => '#10B981', 'group' => 'Income & Pay', 'blurb' => 'New hourly, monthly and annual pay after a raise.'],
+        'monthly-income' => ['name' => 'Monthly Income Calculator', 'url' => '/monthly-income', 'icon' => 'fas fa-wallet', 'color' => '#0EA5E9', 'group' => 'Income & Pay', 'blurb' => 'Convert hourly, weekly or annual pay to monthly.'],
+        'overtime' => ['name' => 'Overtime Calculator', 'url' => '/overtime', 'icon' => 'fas fa-clock', 'color' => '#8B5CF6', 'group' => 'Income & Pay', 'blurb' => 'Time and a half, double time and custom rates.'],
+        'commission' => ['name' => 'Commission Calculator', 'url' => '/commission', 'icon' => 'fas fa-money-bill-wave', 'color' => '#EC4899', 'group' => 'Income & Pay', 'blurb' => 'Commission earned from a sale and rate.'],
+        'markup' => ['name' => 'Markup Calculator', 'url' => '/markup', 'icon' => 'fas fa-percentage', 'color' => '#EF4444', 'group' => 'Business', 'blurb' => 'Markup, margin, selling price and profit.'],
+        'discount' => ['name' => 'Discount Calculator', 'url' => '/discount', 'icon' => 'fas fa-tags', 'color' => '#F59E0B', 'group' => 'Business', 'blurb' => 'Sale price, savings and percent off.'],
+        'average' => ['name' => 'Average Calculator', 'url' => '/average', 'icon' => 'fas fa-chart-bar', 'color' => '#4F46E5', 'group' => 'Math & Everyday', 'blurb' => 'Mean of any list of numbers.'],
+        'cagr' => ['name' => 'CAGR Calculator', 'url' => '/cagr', 'icon' => 'fas fa-chart-line', 'color' => '#14B8A6', 'group' => 'Business', 'blurb' => 'Compound annual growth rate of an investment.'],
+    ] + $tools,
 
 ];

@@ -17,8 +17,10 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ $baseUrl }}{{ $seo['canonical'] ?? '/' }}">
 <meta property="og:site_name" content="{{ $siteName }}">
+<meta property="og:image" content="{{ $baseUrl }}/images/multicalculator.jpg">
 
 <!-- Twitter Card -->
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ $baseUrl }}/images/multicalculator.jpg">
 <meta name="twitter:title" content="{{ $seo['title'] ?? $siteName }}">
 <meta name="twitter:description" content="{{ $seo['description'] ?? '' }}">

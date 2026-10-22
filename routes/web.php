@@ -16,21 +16,10 @@ use App\Http\Controllers\SitemapController;
 
 Route::get('/', fn() => view('home', ['seoPage' => 'home']));
 
-Route::get('average', fn() => view('average', ['seoPage' => 'average']));
-
-Route::get('payraise', fn() => view('payraise', ['seoPage' => 'payraise']));
-
-Route::get('discount', fn() => view('discount', ['seoPage' => 'discount']));
-
-Route::get('markup', fn() => view('markup', ['seoPage' => 'markup']));
-
-Route::get('monthly-income', fn() => view('monthly-income', ['seoPage' => 'monthly-income']));
-
-Route::get('overtime', fn() => view('overtime', ['seoPage' => 'overtime']));
-
-Route::get('commission', fn() => view('commission', ['seoPage' => 'commission']));
-
-Route::get('cagr', fn() => view('cagr', ['seoPage' => 'cagr']));
+// One route per calculator; the view name matches the config key.
+foreach (array_keys(config('seo.calculators')) as $page) {
+    Route::get($page, fn() => view($page, ['seoPage' => $page]));
+}
 
 // Sitemap (exclude cookie/session middleware for Google Search Console compatibility)
 Route::get('sitemap.xml', [SitemapController::class, 'index'])

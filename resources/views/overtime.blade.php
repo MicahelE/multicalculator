@@ -112,6 +112,11 @@
     <article class="calculator-guide">
         <h2>Overtime Calculator: Maximize Your Extra Hours</h2>
 
+        <a href="/no-tax-on-overtime" class="callout-link">
+            <i class="fas fa-user-clock" aria-hidden="true"></i>
+            <span><strong>New: no tax on overtime.</strong> See how much of this overtime you can deduct on your 2025&ndash;2028 federal return.</span>
+        </a>
+
         <h3>Understanding Overtime Pay</h3>
         <p>Overtime pay is additional compensation for hours worked beyond standard working hours. Most commonly, it's calculated at 1.5 times the regular hourly rate for hours worked over 40 per week.</p>
 
@@ -152,8 +157,8 @@
                 <li>Industry regulations</li>
             </ul>
 
-            <h4>How does overtime affect tax calculations?</h4>
-            <p>Overtime pay is taxed at the same rate as regular income but may push you into a higher tax bracket if it significantly increases your total income.</p>
+            <h4>Is overtime taxed?</h4>
+            <p>Overtime is withheld like regular pay, but for tax years 2025 through 2028 you can deduct the FLSA premium portion (up to $12,500, or $25,000 joint) when you file. Use our <a href="/no-tax-on-overtime">no tax on overtime calculator</a> to estimate your savings.</p>
         </div>
 
         <div class="pro-tips mt-4">

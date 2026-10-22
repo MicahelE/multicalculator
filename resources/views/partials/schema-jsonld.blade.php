@@ -11,12 +11,7 @@
     "@type": "WebSite",
     "name": "MultiCalculator",
     "url": "{{ $baseUrl }}",
-    "description": "Free online calculator suite for financial, business, and math calculations.",
-    "potentialAction": {
-        "@type": "SearchAction",
-        "target": "{{ $baseUrl }}/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-    }
+    "description": "Free online calculator suite for financial, business, and math calculations."
 }
 </script>
 
