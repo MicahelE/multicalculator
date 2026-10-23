@@ -25,6 +25,10 @@
     --radius: 12px;
     --radius-sm: 8px;
     --radius-lg: 16px;
+    --ink: #16181D;
+    --paper: #F5F1E8;
+    --marker: #FFD43B;
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 /* --- Base --- */
@@ -45,7 +49,7 @@ body {
 
 /* --- Navbar --- */
 .navbar-custom {
-    background: linear-gradient(135deg, #1E293B 0%, #334155 100%);
+    background: var(--ink);
     padding: 0.75rem 1rem;
     box-shadow: var(--shadow);
 }
@@ -76,37 +80,87 @@ body {
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* --- Hero Banner --- */
+/* --- Hero Banner: graph paper, ink, and the calculator's own color as --accent --- */
+.calculator-hero,
+.home-hero {
+    color: var(--ink);
+    background-color: var(--paper);
+    background-image:
+        linear-gradient(rgba(22, 24, 29, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(22, 24, 29, 0.08) 1px, transparent 1px),
+        linear-gradient(rgba(22, 24, 29, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(22, 24, 29, 0.04) 1px, transparent 1px);
+    background-size: 110px 110px, 110px 110px, 22px 22px, 22px 22px;
+    background-position: -1px -1px;
+    border-bottom: 2px solid var(--ink);
+}
+
 .calculator-hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    color: #fff;
-    padding: 2.5rem 0;
+    --accent: var(--primary);
+    padding: 2.25rem 0 2rem;
     margin-bottom: 2rem;
 }
 
+.hero-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
 .calculator-hero h1 {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
     margin-bottom: 0.5rem;
 }
 
 .calculator-hero p {
     font-size: 1.1rem;
-    opacity: 0.9;
+    color: #4A4D55;
     margin-bottom: 0;
     max-width: 600px;
 }
 
 .calculator-hero .hero-icon {
+    flex: none;
     width: 64px;
     height: 64px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    box-shadow: 4px 4px 0 var(--ink);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    transform: rotate(-4deg);
+}
+
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+}
+
+.hero-eyebrow::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border: 2px solid var(--ink);
+}
+
+.hero-eyebrow:hover {
+    color: var(--ink);
 }
 
 /* --- Calculator Card --- */
@@ -161,8 +215,8 @@ body {
     transition: border-color 0.2s ease;
 }
 
-/* Bootstrap 4 fixes select height, which clips text with our larger padding */
-.calculator-card select.form-control {
+/* Bootstrap 4 fixes select height, which clips text with our larger padding (selector must outrank Bootstrap's) */
+.calculator-card select.form-control:not([size]):not([multiple]) {
     height: auto;
 }
 
@@ -219,21 +273,154 @@ body {
 
 /* --- Home Page --- */
 .home-hero {
-    background: linear-gradient(135deg, var(--primary) 0%, #7C3AED 50%, var(--secondary) 100%);
-    color: #fff;
-    padding: 3rem 0;
+    padding: 3.5rem 0;
+    overflow: hidden;
 }
 
 .home-hero h1 {
-    font-size: 2.5rem;
+    font-size: 3.25rem;
     font-weight: 800;
-    line-height: 1.2;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    margin-bottom: 1rem;
+}
+
+.home-hero .marker {
+    background: linear-gradient(transparent 55%, var(--marker) 55%, var(--marker) 92%, transparent 92%);
+    padding: 0 0.1em;
 }
 
 .home-hero .lead {
     font-size: 1.15rem;
-    opacity: 0.9;
-    line-height: 1.7;
+    font-weight: 400;
+    color: #4A4D55;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Keys you can press: hard shadow that collapses on click */
+.btn-key {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--ink);
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 0.7rem 1.3rem;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.btn-key:hover {
+    color: var(--ink);
+    text-decoration: none;
+    transform: translate(-1px, -1px);
+    box-shadow: 5px 5px 0 var(--ink);
+}
+
+.btn-key:active {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 var(--ink);
+}
+
+.btn-key-primary {
+    background: var(--marker);
+}
+
+/* Receipt of example results */
+.receipt-wrap {
+    /* 1.5px ink outline that follows the torn edge, then the hard shadow */
+    filter: drop-shadow(1.5px 0 0 var(--ink)) drop-shadow(-1.5px 0 0 var(--ink)) drop-shadow(0 1.5px 0 var(--ink)) drop-shadow(0 -1.5px 0 var(--ink)) drop-shadow(5px 5px 0 var(--ink));
+    transform: rotate(2.5deg);
+    max-width: 400px;
+    margin-left: auto;
+}
+
+.receipt {
+    --zig: 22px;
+    background: #fff;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    padding: 1.5rem 1.5rem 2.25rem;
+    -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / var(--zig) 100%;
+    mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / var(--zig) 100%;
+}
+
+.receipt-head {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 2px dashed var(--ink);
+}
+
+.receipt-head span {
+    display: block;
+    font-weight: 500;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    color: #6B6E76;
+    margin-top: 0.2rem;
+}
+
+.receipt ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.receipt li a {
+    display: flex;
+    align-items: baseline;
+    color: var(--ink);
+    padding: 0.3rem 0;
+}
+
+.receipt li a::after {
+    content: '';
+    flex: 1;
+    order: 1;
+    border-bottom: 2px dotted #C8C9CC;
+    margin: 0 0.4rem;
+}
+
+.receipt li b {
+    order: 2;
+}
+
+.receipt li a:hover {
+    text-decoration: none;
+    background: var(--marker);
+}
+
+.receipt-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    border-top: 2px dashed var(--ink);
+    margin: 0.75rem 0 0;
+    padding-top: 0.75rem;
+}
+
+.receipt-foot {
+    text-align: center;
+    color: #6B6E76;
+    margin: 1rem 0 0.75rem;
+}
+
+.receipt-barcode {
+    height: 34px;
+    margin: 0 auto;
+    width: 70%;
+    background:
+        repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 5px),
+        repeating-linear-gradient(90deg, transparent 0 7px, var(--ink) 7px 8px, transparent 8px 11px);
 }
 
 .calculator-grid-card {
@@ -294,43 +481,39 @@ body {
 }
 
 .home-hero .lead {
-    max-width: 640px;
+    max-width: 560px;
 }
 
 .hero-pill {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
+    background: #fff;
+    color: var(--ink);
+    border: 2px solid var(--ink);
     border-radius: 999px;
-    padding: 0.35rem 1rem 0.35rem 0.4rem;
-    font-size: 0.9rem;
+    padding: 0.25rem 0.9rem 0.25rem 0.3rem;
+    font-size: 0.85rem;
+    font-weight: 600;
     margin-bottom: 1.25rem;
 }
 
 .hero-pill:hover {
-    background: rgba(255, 255, 255, 0.25);
-    color: #fff;
+    background: var(--marker);
+    color: var(--ink);
     text-decoration: none;
 }
 
 .hero-ctas {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
-    justify-content: center;
-}
-
-.hero-ctas .btn {
-    font-weight: 600;
-    border-radius: var(--radius-sm);
+    gap: 1rem;
 }
 
 .badge-new {
     display: inline-block;
-    background: var(--warning);
-    color: #1E293B;
+    background: var(--marker);
+    color: var(--ink);
     font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -353,21 +536,25 @@ body {
 .group-chips {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 0.5rem;
-    margin-top: 1.5rem;
+    margin-top: 1.75rem;
 }
 
 .group-chips a {
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 999px;
-    padding: 0.3rem 0.9rem;
-    font-size: 0.875rem;
+    color: var(--ink);
+    background: rgba(255, 255, 255, 0.7);
+    border: 1.5px solid var(--ink);
+    border-radius: 6px;
+    padding: 0.25rem 0.7rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
 .group-chips a:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--ink);
     color: #fff;
     text-decoration: none;
 }
@@ -618,6 +805,18 @@ body {
 }
 
 /* --- Responsive --- */
+@media (max-width: 991.98px) {
+    .receipt-wrap {
+        margin: 2.5rem auto 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn-key {
+        transition: none;
+    }
+}
+
 @media (max-width: 767.98px) {
     .calculator-hero {
         padding: 1.25rem 0;
@@ -633,8 +832,16 @@ body {
     }
 
     /* Keep the calculator above the fold on phones */
+    .hero-row {
+        gap: 1rem;
+    }
+
     .calculator-hero .hero-icon {
-        display: none;
+        width: 44px;
+        height: 44px;
+        font-size: 1.05rem;
+        border-radius: 10px;
+        box-shadow: 3px 3px 0 var(--ink);
     }
 
     .navbar-custom .dropdown-menu {
@@ -661,7 +868,7 @@ body {
     }
 
     .home-hero h1 {
-        font-size: 1.75rem;
+        font-size: 2.25rem;
     }
 
     .calculator-guide h2 {

@@ -67,6 +67,12 @@
         <div class="calculator-faq mt-4">
             <h3>Frequently Asked Questions</h3>
 
+            <h4>When does no tax on overtime start?</h4>
+            <p>It started with tax year 2025, so qualified overtime you earned from January 1, 2025 counts. You get the benefit when you file: 2025 overtime on the return you file in early 2026, and 2026 overtime on the return you file in 2027. Your paychecks keep the usual withholding unless you update your Form W-4 to account for the deduction.</p>
+
+            <h4>How does no tax on overtime work?</h4>
+            <p>It's a deduction, not an exemption. Your overtime is still taxed on each paycheck. When you file, you deduct the premium part of your overtime (the "half" in time-and-a-half) on Schedule 1-A, up to $12,500 ($25,000 joint). That lowers your taxable income, so you owe less federal income tax or get a bigger refund. Social Security and Medicare taxes don't change.</p>
+
             <h4>Is overtime tax-free now?</h4>
             <p>Not completely. Overtime is still taxed and withheld from your paycheck as usual. The benefit comes as a deduction when you file your return, which lowers your federal income tax and may increase your refund.</p>
 

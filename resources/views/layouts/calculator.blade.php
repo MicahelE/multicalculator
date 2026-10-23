@@ -1,6 +1,6 @@
 {{--
     Config-driven calculator page. The page's config('seo.pages.<key>') supplies:
-      'inputs'  => [[name, label, default, type?], ...]  type: 'number' (default) | 'date' | 'time' | [value => label] for a select
+      'inputs'  => [[name, label, default, type?], ...]  type: 'number' (default) | 'signed' (allows negatives) | 'date' | 'time' | [value => label] for a select
       'outputs' => [name => [label, format], ...]       format: money | money2 | percent | number | text
     The formula lives in resources/js/calculators.js under the same key. Views only supply @section('guide').
 --}}
@@ -30,9 +30,10 @@
                                     @endforeach
                                 </select>
                             @else
-                                <input class="form-control" type="{{ $type }}" id="in-{{ $name }}" name="{{ $name }}" value="{{ $default === 'today' ? '' : $default }}"
+                                <input class="form-control" type="{{ $type === 'signed' ? 'number' : $type }}" id="in-{{ $name }}" name="{{ $name }}" value="{{ $default === 'today' ? '' : $default }}"
                                     @if($default === 'today') data-today @endif
-                                    @if($type === 'number') step="any" min="0" inputmode="decimal" @endif>
+                                    @if($type === 'number') step="any" min="0" inputmode="decimal" @endif
+                                    @if($type === 'signed') step="any" @endif>
                             @endif
                         </div>
                     @endforeach

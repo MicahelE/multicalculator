@@ -1,22 +1,52 @@
 @extends('layouts.app')
 
 @section('content')
+@php
+    // Worked examples from the guides (checked in resources/js/calculators.test.js).
+    $receipt = [
+        ['Take-home, $85K in California', '$5,090/mo', '/california-income-tax'],
+        ['Same job in Texas', '+$4,230/yr', '/texas-income-tax'],
+        ['No tax on overtime, 5 hrs/wk', '−$715 tax', '/no-tax-on-overtime'],
+        ['$25K loan at $500/mo', '7.42% APR', '/interest-rate'],
+        ['1-year CD, $10K at 4%', '+$400', '/cd'],
+        ['Maintenance calories, 180 lb', '2,763', '/tdee'],
+    ];
+@endphp
 <section class="home-hero">
-    <div class="container text-center">
-        <a href="/no-tax-on-overtime" class="hero-pill">
-            <span class="badge-new">New</span> No tax on overtime &amp; tips calculators for 2025&ndash;2028 <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i>
-        </a>
-        <h1 class="mb-3">Free Calculators for Pay, Taxes &amp; Business</h1>
-        <p class="lead mb-4 mx-auto">{{ count(config('seo.calculators')) }} free tools for paychecks, 2026 taxes, loans, savings, business and everyday math. Results update as you type.</p>
-        <div class="hero-ctas">
-            <a href="/no-tax-on-overtime" class="btn btn-light btn-lg">No Tax on Overtime</a>
-            <a href="/no-tax-on-tips" class="btn btn-outline-light btn-lg">No Tax on Tips</a>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <a href="/no-tax-on-overtime" class="hero-pill">
+                    <span class="badge-new">New</span> No tax on overtime &amp; tips, 2025&ndash;2028 <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
+                <h1>Free calculators for <span class="marker">pay, taxes</span> &amp;&nbsp;business</h1>
+                <p class="lead">{{ count(config('seo.calculators')) }} free tools for paychecks, 2026 taxes, loans, savings, business and everyday math. Results update as you type.</p>
+                <div class="hero-ctas">
+                    <a href="/no-tax-on-overtime" class="btn-key btn-key-primary">No Tax on Overtime</a>
+                    <a href="/no-tax-on-tips" class="btn-key">No Tax on Tips</a>
+                </div>
+                <nav class="group-chips" aria-label="Calculator categories">
+                    @foreach(config('seo.groups') as $group)
+                    <a href="#{{ Str::slug($group) }}">{{ $group }}</a>
+                    @endforeach
+                </nav>
+            </div>
+            <div class="col-lg-5 d-none d-md-block">
+                <div class="receipt-wrap">
+                    <div class="receipt">
+                        <p class="receipt-head">MultiCalculator<span>Example results from our guides</span></p>
+                        <ul>
+                            @foreach($receipt as [$label, $value, $url])
+                            <li><a href="{{ $url }}"><span>{{ $label }}</span><b>{{ $value }}</b></a></li>
+                            @endforeach
+                        </ul>
+                        <p class="receipt-total"><span>Calculators</span><b>{{ count(config('seo.calculators')) }}</b></p>
+                        <p class="receipt-foot">No sign-up &middot; Runs in your browser</p>
+                        <div class="receipt-barcode" aria-hidden="true"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <nav class="group-chips" aria-label="Calculator categories">
-            @foreach(config('seo.groups') as $group)
-            <a href="#{{ Str::slug($group) }}">{{ $group }}</a>
-            @endforeach
-        </nav>
     </div>
 </section>
 

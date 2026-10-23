@@ -26,6 +26,13 @@ eq(f['salt-deduction']({ stateTax: 30000, propertyTax: 20000, year: 2026, status
 eq(f['child-tax-credit']({ children: 2, others: 0, status: 'joint', magi: 120000, earned: 120000 }).credit, 4400);
 eq(f['child-tax-credit']({ children: 2, others: 0, status: 'single', magi: 200001, earned: 200001 }).credit, 4350);
 eq(f['social-security-cola']({ benefit: 2095, cola: 3.6 }).monthly, 75.42);
+const ca = f['california-income-tax']({ salary: 85000, status: 'single', k401: 5 });
+eq(ca.caTax, 3125.12);
+eq(ca.sdi, 1105);
+eq(ca.net, 61082.38);
+eq(f['california-income-tax']({ salary: 150000, status: 'joint', k401: 5 }).caTax, 4730.24);
+eq(f['texas-income-tax']({ salary: 85000, status: 'single', k401: 5 }).net, 65312.50);
+eq(f['nevada-income-tax']({ salary: 85000, status: 'single', k401: 5 }).vsCa, 4230.12);
 
 // Income & pay
 eq(f['salary-to-hourly']({ salary: 60000, hours: 40, weeks: 52 }).hourly, 28.846);
@@ -40,6 +47,10 @@ eq(f['tip']({ bill: 85, percent: 18, people: 3 }).perPerson, 33.43);
 eq(f['compound-interest']({ principal: 10000, monthly: 200, rate: 7, years: 20, compounding: 12 }).balance, 144572.72);
 eq(f['savings-goal']({ goal: 20000, current: 2000, years: 3, rate: 4 }).monthly, 464.77);
 eq(f['loan-payment']({ amount: 15000, rate: 9, years: 5 }).pmt, 311.38);
+eq(f['interest-rate']({ amount: 25000, monthly: 500, months: 60 }).apr, 7.42);
+assert.ok(f['interest-rate']({ amount: 25000, monthly: 400, months: 60 }).note);
+eq(f['cd']({ deposit: 10000, apy: 4, months: 12, bracket: 22 }).afterTax, 312);
+eq(f['cd']({ deposit: 10000, apy: 4, months: 18, bracket: 22 }).interest, 605.96);
 eq(f['car-payment']({ price: 35000, down: 5000, tradeIn: 0, taxRate: 6, rate: 6.5, months: 60 }).pmt, 628.07);
 assert.strictEqual(f['credit-card-payoff']({ balance: 6000, apr: 22.99, monthly: 250 }).months, 33);
 assert.ok(f['credit-card-payoff']({ balance: 6000, apr: 22.99, monthly: 100 }).note);
@@ -56,6 +67,7 @@ eq(f['break-even']({ fixed: 10000, price: 50, variable: 30 }).units, 500);
 eq(f['tariff']({ value: 10000, rate: 25, quantity: 500, shipping: 1200, fees: 300 }).perUnit, 28);
 eq(f['sales-tax']({ amount: 107.25, rate: 7.25, mode: 'remove' }).before, 100);
 eq(f['roi']({ cost: 10000, value: 15000, years: 5 }).annual, 8.447);
+eq(f['cap-rate']({ price: 400000, rent: 36000, vacancy: 5, expenses: 12000 }).capRate, 5.55);
 
 // Math & everyday
 eq(f['percentage']({ x: 20, y: 150 }).change, 650);
@@ -65,5 +77,13 @@ eq(f['final-grade']({ current: 85, target: 88, weight: 30 }).needed, 95);
 eq(f['gpa']({ g1: 4, c1: 3, g2: 3.3, c2: 4, g3: 3.7, c3: 3, g4: 3, c4: 3, g5: '', c5: 0, g6: '', c6: 0, g7: '', c7: 0, g8: '', c8: 0 }).gpa, 3.4846);
 eq(f['electricity-cost']({ watts: 1500, hours: 5, rate: 0.18, quantity: 1 }).month, 41.06);
 eq(f['gas-cost']({ distance: 300, mpg: 28, price: 3.2, roundTrip: 'yes', people: 2 }).cost, 68.57);
+assert.strictEqual(f['ratio']({ a: 4, b: 6, c: 10 }).simplified, '2 : 3');
+assert.strictEqual(f['ratio']({ a: 1.5, b: 2, c: 0 }).simplified, '3 : 4');
+eq(f['ratio']({ a: 4, b: 6, c: 10 }).scaled, 15);
+eq(f['proportion']({ a: 12, b: 2, c: 30 }).x, 5);
+assert.strictEqual(f['slope']({ x1: 2, y1: 3, x2: 6, y2: 11 }).equation, 'y = 2x − 1');
+eq(f['slope']({ x1: 2, y1: 3, x2: 6, y2: 11 }).distance, 8.944);
+assert.ok(f['slope']({ x1: 2, y1: 3, x2: 2, y2: 11 }).note);
+assert.strictEqual(f['tdee']({ sex: 'male', age: 30, weight: 180, feet: 5, inches: 10, activity: 1.55 }).tdee, 2763);
 
 console.log(`calculators: ok (${Object.keys(f).length} formulas)`);

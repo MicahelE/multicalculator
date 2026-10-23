@@ -26,8 +26,8 @@
 <div class="calculator-faq mt-4">
     <h3>Frequently Asked Questions</h3>
 
-    <h4>Does this mean Social Security is no longer taxed?</h4>
-    <p>No. Social Security benefits are still taxable under the usual rules. The senior deduction lowers your taxable income, which for many retirees offsets some or all of the tax on their benefits.</p>
+    <h4>Is there no tax on Social Security under the Big Beautiful Bill?</h4>
+    <p>Not exactly. The campaign promise was "no tax on Social Security," but the One Big Beautiful Bill didn't change how benefits are taxed. Up to 85% of your benefits can still be taxable under the usual rules. What the law added is this $6,000 senior deduction. It lowers your taxable income, which for many retirees offsets some or all of the tax on their benefits.</p>
 
     <h4>Can I take the senior deduction and the standard deduction?</h4>
     <p>Yes. It's a separate deduction claimed on Schedule 1-A, so you get it on top of the standard deduction and the regular additional amount for being 65 or older.</p>

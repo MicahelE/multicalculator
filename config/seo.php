@@ -15,8 +15,8 @@ return [
     'pages' => [
 
         'home' => [
-            'title' => '50 Free Calculators for Pay, Taxes, Loans & Business | MultiCalculator',
-            'description' => '50 free online calculators for pay, taxes, loans, business and everyday math. Take-home pay, 2026 tax deductions, salary to hourly, compound interest, margin and more.',
+            'title' => '60+ Free Calculators for Pay, Taxes, Loans & Business | MultiCalculator',
+            'description' => '60+ free online calculators for pay, taxes, loans, business and everyday math. Take-home pay, 2026 tax deductions, state income tax, interest rates, CDs and more.',
             'keywords' => 'online calculator, financial calculator, business calculator, math calculator, free calculator',
             'canonical' => '/',
             'icon' => 'fas fa-calculator',
@@ -111,9 +111,9 @@ return [
         ],
 
         'no-tax-on-overtime' => [
-            'title' => 'No Tax on Overtime Calculator 2026 - Overtime Deduction | MultiCalculator',
-            'description' => 'Free no tax on overtime calculator. Estimate your qualified overtime deduction (up to $12,500, or $25,000 joint) and federal tax savings under the One Big Beautiful Bill, 2025-2028.',
-            'keywords' => 'no tax on overtime calculator, overtime tax deduction calculator, qualified overtime compensation, overtime deduction 2026, one big beautiful bill overtime, how much will no tax on overtime save me',
+            'title' => 'No Tax on Overtime Calculator 2026 - How It Works & When It Starts | MultiCalculator',
+            'description' => 'Free no tax on overtime calculator. How no tax on overtime works, when it starts, and your deduction (up to $12,500, or $25,000 joint) and tax savings under the One Big Beautiful Bill.',
+            'keywords' => 'no tax on overtime, no tax on overtime calculator, when does no tax on overtime start, how does no tax on overtime work, no taxes on overtime, no tax on overtime explained, overtime tax deduction calculator',
             'canonical' => '/no-tax-on-overtime',
             'icon' => 'fas fa-user-clock',
             'hero_title' => 'No Tax on Overtime Calculator',

@@ -36,9 +36,9 @@ return [
     'senior-deduction' => [
         'name' => 'Senior Deduction Calculator', 'group' => 'Taxes', 'icon' => 'fas fa-hand-holding-heart', 'color' => '#0D9488', 'new' => true,
         'blurb' => 'The new $6,000 deduction for people 65 and older.',
-        'title' => 'Senior Deduction Calculator 2026 - $6,000 Bonus Deduction | MultiCalculator',
-        'description' => 'Free $6,000 senior deduction calculator. Estimate the new bonus deduction for taxpayers 65+ ($12,000 for couples), the MAGI phase-out, and your tax savings.',
-        'keywords' => 'senior deduction calculator, $6000 senior deduction calculator, senior bonus deduction calculator, enhanced senior deduction, senior tax deduction 2026',
+        'title' => 'Senior Deduction Calculator 2026 - No Tax on Social Security? | MultiCalculator',
+        'description' => 'Is there no tax on Social Security under the Big Beautiful Bill? Not quite. Estimate the $6,000 senior deduction that replaced it ($12,000 for couples) and your tax savings.',
+        'keywords' => 'senior deduction calculator, no tax on social security, no tax on social security big beautiful bill, $6000 senior deduction calculator, senior bonus deduction calculator, enhanced senior deduction',
         'hero_description' => 'Estimate the new $6,000 deduction for taxpayers 65 and older, including the income phase-out.',
         'related' => ['social-security-cola', 'federal-income-tax', 'retirement'],
         'inputs' => [
@@ -152,7 +152,7 @@ return [
     'federal-income-tax' => [
         'name' => 'Federal Income Tax Calculator', 'group' => 'Taxes', 'icon' => 'fas fa-file-invoice-dollar', 'color' => '#475569',
         'blurb' => '2026 tax brackets, effective rate and marginal rate.',
-        'title' => 'Federal Income Tax Calculator 2026 - Tax Bracket Calculator | MultiCalculator',
+        'title' => 'Federal Income Tax Calculator 2026 - Effective Tax Rate & Brackets | MultiCalculator',
         'description' => 'Free 2026 federal income tax calculator. Find your tax, taxable income, effective tax rate and marginal tax bracket using the new 2026 IRS brackets.',
         'keywords' => 'federal income tax calculator, tax bracket calculator 2026, 2026 tax brackets, effective tax rate calculator, marginal tax rate calculator, income tax calculator',
         'hero_description' => 'Estimate your 2026 federal income tax, effective rate and tax bracket.',
@@ -173,8 +173,8 @@ return [
         'name' => 'Bonus Tax Calculator', 'group' => 'Taxes', 'icon' => 'fas fa-gift', 'color' => '#CA8A04',
         'blurb' => 'How much of your bonus you actually take home.',
         'title' => 'Bonus Tax Calculator 2026 - Bonus After Taxes | MultiCalculator',
-        'description' => 'Free bonus tax calculator. See how much of your bonus you take home after the 22% federal supplemental rate, Social Security, Medicare and state tax.',
-        'keywords' => 'bonus tax calculator, bonus tax calculator 2026, bonus after taxes, supplemental tax rate, how much is a bonus taxed, bonus withholding calculator',
+        'description' => 'Free tax and bonus calculator. See how much of your bonus you take home after the 22% federal supplemental rate, Social Security, Medicare and state tax.',
+        'keywords' => 'bonus tax calculator, tax and bonus calculator, bonus tax calculator 2026, bonus after taxes, supplemental tax rate, how much is a bonus taxed, bonus withholding calculator',
         'hero_description' => 'See how much of your bonus you take home after withholding.',
         'related' => ['take-home-pay', 'commission', 'federal-income-tax'],
         'inputs' => [
@@ -224,6 +224,72 @@ return [
         ],
         'outputs' => ['tax' => ['Federal tax on the gain', 'money'], 'rate' => ['Effective rate on the gain', 'percent'], 'afterTax' => ['Gain after tax', 'money']],
         'disclaimer' => $taxNote . ' Excludes the 3.8% net investment income tax and state tax.',
+    ],
+
+    'california-income-tax' => [
+        'name' => 'California Income Tax Calculator', 'group' => 'Taxes', 'icon' => 'fas fa-sun', 'color' => '#D97706',
+        'blurb' => '2026 California state tax, SDI and take-home pay.',
+        'title' => 'California Income Tax Calculator 2026 - CA Paycheck After Tax | MultiCalculator',
+        'description' => 'Free 2026 California income tax calculator. Estimate CA state income tax with the new 2026 FTB brackets, SDI, federal tax and your take-home pay.',
+        'keywords' => 'california income tax calculator, ca income tax calculator, california tax calculator 2026, california paycheck calculator, california tax brackets 2026, ca state tax calculator',
+        'hero_description' => 'Estimate your 2026 California income tax, SDI and take-home pay.',
+        'related' => ['nevada-income-tax', 'texas-income-tax', 'take-home-pay'],
+        'inputs' => [
+            ['salary', 'Annual salary ($)', 85000],
+            ['status', 'Filing status', 'single', $status],
+            ['k401', '401(k) contribution (% of pay)', 5],
+        ],
+        'outputs' => [
+            'net' => ['Take-home pay per year', 'money'], 'monthly' => ['Take-home pay per month', 'money'],
+            'caTax' => ['California income tax', 'money'], 'sdi' => ['CA SDI (1.3%)', 'money'],
+            'federal' => ['Federal income tax', 'money'], 'fica' => ['Social Security & Medicare', 'money'],
+            'rate' => ['Total tax rate', 'percent'],
+        ],
+        'disclaimer' => 'Estimate only, not tax advice. Uses 2026 federal and California figures and standard deductions. Ignores the exemption credit phase-out at high incomes.',
+    ],
+
+    'nevada-income-tax' => [
+        'name' => 'Nevada Income Tax Calculator', 'group' => 'Taxes', 'icon' => 'fas fa-mountain', 'color' => '#1E3A8A',
+        'blurb' => 'Take-home pay in a state with no income tax.',
+        'title' => 'Nevada Income Tax Calculator 2026 - NV Paycheck After Tax | MultiCalculator',
+        'description' => 'Free 2026 Nevada income tax calculator. Nevada has no state income tax: see your federal tax, FICA and take-home pay, and how much more you keep than in California.',
+        'keywords' => 'income tax calculator nevada, nevada income tax calculator, nevada paycheck calculator, nevada state income tax, does nevada have state income tax, nevada tax calculator 2026',
+        'hero_description' => 'Nevada has no state income tax. See your take-home pay after federal tax and FICA.',
+        'related' => ['texas-income-tax', 'california-income-tax', 'take-home-pay'],
+        'inputs' => [
+            ['salary', 'Annual salary ($)', 85000],
+            ['status', 'Filing status', 'single', $status],
+            ['k401', '401(k) contribution (% of pay)', 5],
+        ],
+        'outputs' => [
+            'net' => ['Take-home pay per year', 'money'], 'monthly' => ['Take-home pay per month', 'money'],
+            'state' => ['Nevada state income tax', 'money'], 'federal' => ['Federal income tax', 'money'],
+            'fica' => ['Social Security & Medicare', 'money'], 'rate' => ['Total tax rate', 'percent'],
+            'vsCa' => ['You keep vs. the same pay in California', 'money'],
+        ],
+        'disclaimer' => $taxNote . ' Assumes the standard deduction.',
+    ],
+
+    'texas-income-tax' => [
+        'name' => 'Texas Income Tax Calculator', 'group' => 'Taxes', 'icon' => 'fas fa-star', 'color' => '#B91C1C',
+        'blurb' => 'Texas paycheck after federal tax and FICA.',
+        'title' => 'Texas Tax Calculator 2026 - Income Tax & Paycheck | MultiCalculator',
+        'description' => 'Free 2026 Texas tax calculator. Texas has no state income tax: see your federal income tax, Social Security, Medicare and take-home pay on any salary.',
+        'keywords' => 'texas tax calculator, texas income tax calculator, texas paycheck calculator, does texas have state income tax, texas salary calculator, texas tax calculator 2026',
+        'hero_description' => 'Texas has no state income tax. See your take-home pay after federal tax and FICA.',
+        'related' => ['nevada-income-tax', 'california-income-tax', 'take-home-pay'],
+        'inputs' => [
+            ['salary', 'Annual salary ($)', 85000],
+            ['status', 'Filing status', 'single', $status],
+            ['k401', '401(k) contribution (% of pay)', 5],
+        ],
+        'outputs' => [
+            'net' => ['Take-home pay per year', 'money'], 'monthly' => ['Take-home pay per month', 'money'],
+            'state' => ['Texas state income tax', 'money'], 'federal' => ['Federal income tax', 'money'],
+            'fica' => ['Social Security & Medicare', 'money'], 'rate' => ['Total tax rate', 'percent'],
+            'vsCa' => ['You keep vs. the same pay in California', 'money'],
+        ],
+        'disclaimer' => $taxNote . ' Assumes the standard deduction.',
     ],
 
     // ---------------- Income & pay ----------------
@@ -388,6 +454,24 @@ return [
         'outputs' => ['monthly' => ['Save each month', 'money2'], 'weekly' => ['Or each week', 'money2'], 'deposits' => ['Total you deposit', 'money'], 'grown' => ['Current savings will grow to', 'money']],
     ],
 
+    'cd' => [
+        'name' => 'CD Calculator', 'group' => 'Loans & Savings', 'icon' => 'fas fa-lock', 'color' => '#047857',
+        'blurb' => 'Interest earned on a certificate of deposit.',
+        'title' => 'CD Calculator - CD Rate & Interest Earned | MultiCalculator',
+        'description' => 'Free CD calculator. See how much a certificate of deposit earns at any CD rate, your balance at maturity, and the interest you keep after taxes.',
+        'keywords' => 'cd calculator, cd rate calculator, cd interest calculator, cd interest rate calculator, certificate of deposit calculator, cd rates calculator',
+        'hero_description' => 'See what a CD earns by maturity and how much interest you keep after tax.',
+        'related' => ['savings-goal', 'compound-interest', 'inflation'],
+        'inputs' => [
+            ['deposit', 'Deposit ($)', 10000],
+            ['apy', 'APY (%)', 4],
+            ['months', 'Term', 12, [3 => '3 months', 6 => '6 months', 9 => '9 months', 12 => '1 year', 18 => '18 months', 24 => '2 years', 36 => '3 years', 48 => '4 years', 60 => '5 years']],
+            ['bracket', 'Federal tax bracket', 22, [0 => 'None (CD in an IRA)'] + $brackets],
+        ],
+        'outputs' => ['balance' => ['Balance at maturity', 'money2'], 'interest' => ['Interest earned', 'money2'], 'afterTax' => ['Interest after federal tax', 'money2']],
+        'disclaimer' => 'Assumes interest stays in the CD until maturity. Withdrawing early usually costs a penalty.',
+    ],
+
     'loan-payment' => [
         'name' => 'Loan Payment Calculator', 'group' => 'Loans & Savings', 'icon' => 'fas fa-hand-holding-usd', 'color' => '#1D4ED8',
         'blurb' => 'Monthly payment and total interest on any loan.',
@@ -402,6 +486,22 @@ return [
             ['years', 'Loan term (years)', 5],
         ],
         'outputs' => ['pmt' => ['Monthly payment', 'money2'], 'interest' => ['Total interest', 'money2'], 'total' => ['Total of all payments', 'money2']],
+    ],
+
+    'interest-rate' => [
+        'name' => 'Interest Rate Calculator', 'group' => 'Loans & Savings', 'icon' => 'fas fa-search-dollar', 'color' => '#0E7490',
+        'blurb' => 'Find the real APR from a loan\'s payment and term.',
+        'title' => 'Interest Rate Calculator - Find the APR on a Loan | MultiCalculator',
+        'description' => 'Free interest rate calculator. Find the actual interest rate (APR) on a loan from the amount borrowed, the monthly payment and the term, plus the total interest.',
+        'keywords' => 'interest rate calculator, loan interest rate calculator, apr calculator, what is my interest rate, calculate interest rate on a loan, effective interest rate calculator',
+        'hero_description' => 'Find the interest rate on a loan from the amount, monthly payment and term.',
+        'related' => ['loan-payment', 'car-payment', 'credit-card-payoff'],
+        'inputs' => [
+            ['amount', 'Loan amount ($)', 25000],
+            ['monthly', 'Monthly payment ($)', 500],
+            ['months', 'Number of monthly payments', 60],
+        ],
+        'outputs' => ['apr' => ['Interest rate (APR)', 'percent'], 'interest' => ['Total interest', 'money2'], 'total' => ['Total of all payments', 'money2']],
     ],
 
     'car-payment' => [
@@ -626,6 +726,23 @@ return [
         'outputs' => ['roi' => ['ROI', 'percent'], 'annual' => ['Annualized ROI', 'percent'], 'gain' => ['Gain', 'money']],
     ],
 
+    'cap-rate' => [
+        'name' => 'Cap Rate Calculator', 'group' => 'Business', 'icon' => 'fas fa-building', 'color' => '#7C2D12',
+        'blurb' => 'Cap rate and NOI on a rental property.',
+        'title' => 'Cap Rate Calculator - Rental Property Capitalization Rate | MultiCalculator',
+        'description' => 'Free cap rate calculator. Work out a rental property\'s net operating income (NOI), capitalization rate and gross rent multiplier from price, rent and expenses.',
+        'keywords' => 'cap rate calculator, capitalization rate calculator, cap rate formula, noi calculator, rental property calculator, real estate cap rate',
+        'hero_description' => 'Work out net operating income and cap rate on a rental property.',
+        'related' => ['roi', 'rent-affordability', 'break-even'],
+        'inputs' => [
+            ['price', 'Property price or value ($)', 400000],
+            ['rent', 'Gross annual rent ($)', 36000],
+            ['vacancy', 'Vacancy rate (%)', 5],
+            ['expenses', 'Annual operating expenses ($, not the mortgage)', 12000],
+        ],
+        'outputs' => ['capRate' => ['Cap rate', 'percent'], 'noi' => ['Net operating income (NOI)', 'money'], 'grm' => ['Gross rent multiplier', 'decimal']],
+    ],
+
     // ---------------- Math & everyday ----------------
 
     'percentage' => [
@@ -732,6 +849,82 @@ return [
             ['people', 'People splitting the cost', 2],
         ],
         'outputs' => ['cost' => ['Total fuel cost', 'money2'], 'gallons' => ['Gallons needed', 'number'], 'perPerson' => ['Cost per person', 'money2'], 'perMile' => ['Cost per mile', 'money2']],
+    ],
+
+    'ratio' => [
+        'name' => 'Ratio Calculator', 'group' => 'Math & Everyday', 'icon' => 'fas fa-divide', 'color' => '#0369A1',
+        'blurb' => 'Simplify a ratio and scale it up or down.',
+        'title' => 'Ratio Calculator - Simplify & Scale Ratios | MultiCalculator',
+        'description' => 'Free ratio calculator. Simplify any ratio to lowest terms, convert it to a decimal and a percentage split, and scale it to a new size.',
+        'keywords' => 'ratio calculator, simplify ratio calculator, ratio simplifier, ratio to percentage, scale ratio calculator, aspect ratio calculator',
+        'hero_description' => 'Simplify a ratio, see it as a decimal and percentage split, and scale it.',
+        'related' => ['proportion', 'percentage', 'slope'],
+        'inputs' => [
+            ['a', 'First number (A)', 4],
+            ['b', 'Second number (B)', 6],
+            ['c', 'Scale it: new first number', 10],
+        ],
+        'outputs' => [
+            'simplified' => ['Simplified ratio', 'text'], 'decimal' => ['As a decimal (A ÷ B)', 'number'],
+            'split' => ['Percentage split', 'text'], 'scaled' => ['Matching second number', 'number'],
+        ],
+    ],
+
+    'proportion' => [
+        'name' => 'Proportion Calculator', 'group' => 'Math & Everyday', 'icon' => 'fas fa-equals', 'color' => '#6D28D9',
+        'blurb' => 'Solve A : B = C : X for the missing number.',
+        'title' => 'Proportion Calculator - Solve for X | MultiCalculator',
+        'description' => 'Free proportion calculator. Solve A/B = C/X for the missing value with cross multiplication. Handy for recipes, maps, unit rates and homework.',
+        'keywords' => 'proportion calculator, solve proportion calculator, cross multiplication calculator, proportion solver, solve for x proportion, ratio and proportion calculator',
+        'hero_description' => 'Solve A : B = C : X for the missing number using cross multiplication.',
+        'related' => ['ratio', 'percentage', 'slope'],
+        'inputs' => [['a', 'A', 12], ['b', 'B', 2], ['c', 'C', 30]],
+        'outputs' => ['x' => ['X', 'number'], 'equation' => ['Proportion', 'text']],
+    ],
+
+    'slope' => [
+        'name' => 'Slope Calculator', 'group' => 'Math & Everyday', 'icon' => 'fas fa-ruler-combined', 'color' => '#BE123C',
+        'blurb' => 'Slope, line equation and distance from two points.',
+        'title' => 'Slope Calculator - Slope, Equation & Distance from 2 Points | MultiCalculator',
+        'description' => 'Free slope calculator. Enter two points to get the slope, y-intercept, the line equation in slope-intercept form, the distance between the points and the angle.',
+        'keywords' => 'slope calculator, slope intercept form calculator, find the slope calculator, slope of a line calculator, two point slope calculator, rise over run calculator',
+        'hero_description' => 'Enter two points to find the slope, line equation, distance and angle.',
+        'related' => ['ratio', 'proportion', 'percentage'],
+        'inputs' => [
+            ['x1', 'Point 1: x', 2, 'signed'], ['y1', 'Point 1: y', 3, 'signed'],
+            ['x2', 'Point 2: x', 6, 'signed'], ['y2', 'Point 2: y', 11, 'signed'],
+        ],
+        'outputs' => [
+            'm' => ['Slope (m)', 'number'], 'equation' => ['Equation', 'text'], 'b' => ['Y-intercept (b)', 'number'],
+            'distance' => ['Distance between the points', 'number'], 'angle' => ['Angle (degrees)', 'number'],
+        ],
+    ],
+
+    'tdee' => [
+        'name' => 'TDEE Calculator', 'group' => 'Math & Everyday', 'icon' => 'fas fa-fire', 'color' => '#EA580C',
+        'blurb' => 'Calories you burn per day, and targets to lose or gain.',
+        'title' => 'TDEE Calculator - Calories Burned Per Day | MultiCalculator',
+        'description' => 'Free TDEE calculator. Estimate your total daily energy expenditure and BMR with the Mifflin-St Jeor equation, plus calorie targets to lose or gain weight.',
+        'keywords' => 'tdee calculator, total daily energy expenditure calculator, maintenance calorie calculator, bmr calculator, calories burned per day, calorie deficit calculator',
+        'hero_description' => 'Estimate the calories you burn per day and your targets to lose or gain weight.',
+        'related' => ['age', 'percentage', 'average'],
+        'inputs' => [
+            ['sex', 'Sex', 'male', ['male' => 'Male', 'female' => 'Female']],
+            ['age', 'Age', 30],
+            ['weight', 'Weight (lb)', 180],
+            ['feet', 'Height (feet)', 5],
+            ['inches', 'Height (inches)', 10],
+            ['activity', 'Activity level', '1.55', [
+                '1.2' => 'Sedentary (desk job, little exercise)', '1.375' => 'Light (exercise 1-3 days a week)',
+                '1.55' => 'Moderate (exercise 3-5 days a week)', '1.725' => 'Very active (6-7 days a week)',
+                '1.9' => 'Athlete (hard training or a physical job)',
+            ]],
+        ],
+        'outputs' => [
+            'tdee' => ['Maintenance calories per day (TDEE)', 'number'], 'bmr' => ['Basal metabolic rate (BMR)', 'number'],
+            'lose' => ['To lose about 1 lb a week', 'number'], 'gain' => ['To gain about 0.5 lb a week', 'number'],
+        ],
+        'disclaimer' => 'Estimate only, not medical advice. Real needs vary with body composition and health.',
     ],
 
 ];

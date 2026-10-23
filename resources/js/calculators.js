@@ -9,13 +9,23 @@ const BRACKETS = {
 };
 const LTCG = { single: [49450, 545500], joint: [98900, 613700] }; // top of the 0% and 15% bands
 const SS_WAGE_BASE = 184500;
+// California 2026 (FTB Tax News, Oct 2026). SDI is 1.3% of all wages, no cap (EDD).
+const CA = {
+    std: { single: 5900, joint: 11800 },
+    credit: { single: 158, joint: 316 },
+    brackets: {
+        single: [[11456, 0.01], [27157, 0.02], [42861, 0.04], [59498, 0.06], [75197, 0.08], [384109, 0.093], [460927, 0.103], [768213, 0.113], [Infinity, 0.123]],
+        joint: [[22912, 0.01], [54314, 0.02], [85722, 0.04], [118996, 0.06], [150394, 0.08], [768218, 0.093], [921854, 0.103], [1536426, 0.113], [Infinity, 0.123]],
+    },
+    sdi: 0.013,
+};
 const DAYS = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
 const over = (amount, threshold) => Math.max(0, amount - threshold);
 
-export function incomeTax(taxable, status) {
+function bracketTax(taxable, brackets) {
     let tax = 0, floor = 0;
-    for (const [top, rate] of BRACKETS[status]) {
+    for (const [top, rate] of brackets) {
         if (taxable <= floor) break;
         tax += (Math.min(taxable, top) - floor) * rate;
         floor = top;
@@ -23,7 +33,24 @@ export function incomeTax(taxable, status) {
     return tax;
 }
 
+export const incomeTax = (taxable, status) => bracketTax(taxable, BRACKETS[status]);
+
 const marginalRate = (taxable, status) => BRACKETS[status].find(([top]) => taxable <= top)[1];
+
+const fica = (wages, status) => 0.062 * Math.min(wages, SS_WAGE_BASE) + 0.0145 * wages + 0.009 * over(wages, status === 'joint' ? 250000 : 200000);
+
+// Yearly federal tax, FICA and take-home on a salary; `state` is whatever state tax the caller adds.
+function paycheck(salary, status, k401, state = 0) {
+    const pretax = salary * k401 / 100;
+    const federal = incomeTax(over(salary - pretax, STD_DEDUCTION[status]), status);
+    const payroll = fica(salary, status);
+    const net = salary - pretax - federal - payroll - state;
+    return { net, monthly: net / 12, federal, fica: payroll, state, pretax, rate: salary ? (federal + payroll + state) / salary * 100 : 0 };
+}
+
+const gcd = (x, y) => (y ? gcd(y, x % y) : x);
+const decimals = n => Math.min(6, (String(n).split('.')[1] || '').length);
+const num = n => String(+n.toFixed(4)); // for numbers inside text results
 
 // Monthly payment on an amortized loan.
 export function payment(principal, apr, months) {
@@ -71,13 +98,21 @@ export const formulas = {
     },
 
     'take-home-pay': ({ salary, status, periods, k401, stateRate }) => {
-        const pretax = salary * k401 / 100;
-        const federal = incomeTax(over(salary - pretax, STD_DEDUCTION[status]), status);
-        const fica = 0.062 * Math.min(salary, SS_WAGE_BASE) + 0.0145 * salary + 0.009 * over(salary, status === 'joint' ? 250000 : 200000);
-        const state = (salary - pretax) * stateRate / 100;
-        const net = salary - pretax - federal - fica - state;
-        return { paycheck: net / periods, net, federal, fica, state, pretax };
+        const r = paycheck(salary, status, k401, salary * (1 - k401 / 100) * stateRate / 100);
+        return { ...r, paycheck: r.net / periods };
     },
+
+    'california-income-tax': ({ salary, status, k401 }) => {
+        const taxable = over(salary * (1 - k401 / 100), CA.std[status]);
+        // Plus the 1% Mental Health Services Tax over $1M.
+        // ponytail: skips the exemption-credit phase-out (~$260k+ AGI), which only removes the $158/$316 credit.
+        const caTax = Math.max(0, bracketTax(taxable, CA.brackets[status]) - CA.credit[status]) + 0.01 * over(taxable, 1e6);
+        const sdi = salary * CA.sdi;
+        return { ...paycheck(salary, status, k401, caTax + sdi), caTax, sdi };
+    },
+
+    'nevada-income-tax': v => noStateTax(v),
+    'texas-income-tax': v => noStateTax(v),
 
     'bonus-tax': ({ bonus, stateRate }) => {
         // Flat supplemental withholding: 22%, or 37% on the part over $1 million.
@@ -205,6 +240,26 @@ export const formulas = {
         return { monthly, weekly: monthly * 12 / 52, deposits: monthly * n, grown };
     },
 
+    'interest-rate': ({ amount, monthly, months }) => {
+        if (!amount || !monthly || !months) return {};
+        const total = monthly * months;
+        if (total < amount) return { note: "These payments add up to less than the loan amount, so no interest rate fits. Check the numbers." };
+        // The payment rises with the rate, so bisect for the APR that reproduces it.
+        let lo = 0, hi = 1000;
+        for (let i = 0; i < 60; i++) {
+            const mid = (lo + hi) / 2;
+            if (payment(amount, mid, months) > monthly) hi = mid; else lo = mid;
+        }
+        return { apr: lo, interest: total - amount, total };
+    },
+
+    'cd': ({ deposit, apy, months, bracket }) => {
+        // APY already includes compounding, so growth is just (1 + APY) per year.
+        const balance = deposit * (1 + apy / 100) ** (months / 12);
+        const interest = balance - deposit;
+        return { balance, interest, afterTax: interest * (1 - bracket / 100) };
+    },
+
     'loan-payment': ({ amount, rate, years }) => {
         const n = Math.round(years * 12), pmt = payment(amount, rate, n);
         return { pmt, total: pmt * n, interest: pmt * n - amount };
@@ -300,6 +355,11 @@ export const formulas = {
         return { total: before + tax, tax, before };
     },
 
+    'cap-rate': ({ price, rent, vacancy, expenses }) => {
+        const noi = rent * (1 - vacancy / 100) - expenses;
+        return { capRate: noi / price * 100, noi, grm: price / rent };
+    },
+
     'roi': ({ cost, value, years }) => ({
         roi: (value - cost) / cost * 100,
         annual: years ? ((value / cost) ** (1 / years) - 1) * 100 : NaN,
@@ -360,7 +420,42 @@ export const formulas = {
         const cost = gallons * price;
         return { cost, gallons, perPerson: cost / Math.max(1, people), perMile: cost / miles };
     },
+
+    'ratio': ({ a, b, c }) => {
+        if (!a || !b) return {};
+        // Scale to whole numbers before reducing, so 1.5 : 2 becomes 3 : 4.
+        const k = 10 ** Math.max(decimals(a), decimals(b));
+        const [x, y] = [Math.round(a * k), Math.round(b * k)];
+        const g = gcd(x, y);
+        return { simplified: `${x / g} : ${y / g}`, decimal: a / b, split: `${+(a / (a + b) * 100).toFixed(2)}% / ${+(b / (a + b) * 100).toFixed(2)}%`, scaled: c * b / a };
+    },
+
+    'proportion': ({ a, b, c }) => {
+        if (!a) return { note: 'A can’t be 0.' };
+        const x = b * c / a;
+        return { x, equation: `${num(a)} : ${num(b)} = ${num(c)} : ${num(x)}` };
+    },
+
+    'slope': ({ x1, y1, x2, y2 }) => {
+        const dx = x2 - x1, dy = y2 - y1, distance = Math.hypot(dx, dy);
+        if (!dx) return { distance, equation: `x = ${num(x1)}`, note: dy ? 'Vertical line: the slope is undefined.' : 'The two points are the same.' };
+        const m = dy / dx, b = y1 - m * x1;
+        return { m, equation: `y = ${num(m)}x ${b < 0 ? '−' : '+'} ${num(Math.abs(b))}`, b, distance, angle: Math.atan(m) * 180 / Math.PI };
+    },
+
+    'tdee': ({ sex, age, weight, feet, inches, activity }) => {
+        // Mifflin-St Jeor BMR from pounds and feet/inches, times an activity multiplier.
+        const bmr = 10 * weight * 0.45359237 + 6.25 * (feet * 12 + inches) * 2.54 - 5 * age + (sex === 'male' ? 5 : -161);
+        const tdee = bmr * activity;
+        return { tdee: Math.round(tdee), bmr: Math.round(bmr), lose: Math.round(tdee - 500), gain: Math.round(tdee + 250) };
+    },
 };
+
+// Nevada and Texas: no state income tax, compared with the same salary in California.
+function noStateTax(v) {
+    const r = paycheck(v.salary, v.status, v.k401);
+    return { ...r, vsCa: r.net - formulas['california-income-tax'](v).net };
+}
 
 const fmt = {
     money: n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }),
